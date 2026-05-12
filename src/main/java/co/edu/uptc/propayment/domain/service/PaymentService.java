@@ -29,7 +29,7 @@ public class PaymentService {
         return paymentRepository.save(payment);
     }
 
-    public Payment buildAndSave(String apiKey, Transaction transaction) {
+    public Payment build(String apiKey, Transaction transaction) {
 
         Company company = companyService.findByApiKey(apiKey);
 
@@ -45,11 +45,8 @@ public class PaymentService {
         payment.setCardHolderName(simplifiedCard.getCardHolderName());
         payment.setPaymentDate(LocalDateTime.now());
         payment.setStatus(authorized ? PaymentStatus.APPROVED : PaymentStatus.REJECTED);
-
-        return paymentRepository.save(payment);
+        return payment;
     }
-
-
 
     private boolean mockAuthorize(String userEmail) {
         List<String> approvedEmails = List.of(
@@ -60,8 +57,8 @@ public class PaymentService {
         return approvedEmails.contains(userEmail);
     }
 
-    private class SimplifiedCard{
-        private String cardLast4;
+    private static class SimplifiedCard {
+        private final String cardLast4;
         private String cardHolderName;
         private CardType cardType;
 
@@ -75,9 +72,6 @@ public class PaymentService {
             return cardLast4;
         }
 
-        public void setCardLast4(String cardLast4) {
-            this.cardLast4 = cardLast4;
-        }
 
         public String getCardHolderName() {
             return cardHolderName;
@@ -91,8 +85,5 @@ public class PaymentService {
             return cardType;
         }
 
-        public void setCardType(CardType cardType) {
-            this.cardType = cardType;
-        }
     }
 }
