@@ -17,4 +17,7 @@ public class CompanyService {
     public Company save(Company company) {
         return companyRepository.save(company);
     }
+    public Company findByApiKey(String apiKey) {
+        return companyRepository.findByApiKey(apiKey);
+    }
 }

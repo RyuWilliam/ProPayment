@@ -5,4 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CompanyJpaRepository extends JpaRepository<Company, Integer> {
 
+    Company findByApiKey(String apiKey);
+
 }
