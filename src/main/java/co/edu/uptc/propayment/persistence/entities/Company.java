@@ -16,9 +16,6 @@ public class Company {
     @Column(nullable = false, unique = true)
     private String apiKey;
 
-    @Column(nullable = false)
-    private Boolean active;
-
 
     public Company(){
 
@@ -48,11 +45,5 @@ public class Company {
         this.apiKey = apiKey;
     }
 
-    public Boolean getActive() {
-        return active;
-    }
-
-    public void setActive(Boolean active) {
-        this.active = active;
-    }
+    
 }

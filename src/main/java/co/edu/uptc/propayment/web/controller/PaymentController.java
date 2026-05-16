@@ -18,10 +18,9 @@ public class PaymentController {
 
 
     @PostMapping("/process")
-        public boolean processPayment(@RequestHeader("API-Key") String apiKey,
+        public PaymentStatus processPayment(@RequestHeader("API-Key") String apiKey,
                                       @RequestBody Transaction transaction)  {
             Payment payment = paymentService.build(apiKey, transaction);
-            Payment saved = paymentService.save(payment);
-            return saved.getStatus() == PaymentStatus.APPROVED;
+            return payment.getStatus();
         }
 }

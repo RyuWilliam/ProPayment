@@ -1,0 +1,242 @@
+2026-05-13 13:05:32 [INFO] [restartedMain] c.e.u.p.PropaymentApplication - Starting PropaymentApplication using Java 24.0.2 with PID 10128 (E:\William\event\propayment\build\classes\java\main started by ruyk1 in E:\William\event\propayment)
+2026-05-13 13:05:32 [INFO] [restartedMain] c.e.u.p.PropaymentApplication - The following 1 profile is active: "dev"
+2026-05-13 13:05:32 [INFO] [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-05-13 13:05:32 [INFO] [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-05-13 13:05:32 [INFO] [restartedMain] o.s.b.d.c.l.DockerComposeLifecycleManager - Using Docker Compose file E:\William\event\propayment\compose.yaml
+2026-05-13 13:05:35 [INFO] [OutputReader-stderr] o.s.b.docker.compose.core.DockerCli -  Container payment_service_db  Starting
+2026-05-13 13:05:39 [INFO] [OutputReader-stderr] o.s.b.docker.compose.core.DockerCli -  Container payment_service_db  Started
+2026-05-13 13:05:39 [INFO] [OutputReader-stderr] o.s.b.docker.compose.core.DockerCli -  Container payment_service_db  Waiting
+2026-05-13 13:05:39 [INFO] [OutputReader-stderr] o.s.b.docker.compose.core.DockerCli -  Container payment_service_db  Healthy
+2026-05-13 13:05:42 [INFO] [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-13 13:05:42 [INFO] [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 77 ms. Found 2 JPA repository interfaces.
+2026-05-13 13:05:42 [INFO] [restartedMain] o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 7021 (http)
+2026-05-13 13:05:42 [INFO] [restartedMain] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7021"]
+2026-05-13 13:05:42 [INFO] [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-13 13:05:42 [INFO] [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-05-13 13:05:42 [INFO] [restartedMain] o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 1769 ms
+2026-05-13 13:05:43 [INFO] [restartedMain] org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-13 13:05:43 [INFO] [restartedMain] org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-05-13 13:05:44 [INFO] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-13 13:05:44 [INFO] [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-13 13:05:44 [INFO] [restartedMain] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2d31a6a6
+2026-05-13 13:05:44 [INFO] [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-13 13:05:44 [INFO] [restartedMain] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://127.0.0.1:5251/payment_service_db?ApplicationName=propayment]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 16.13
+	Default catalog/schema: payment_service_db/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-13 13:05:45 [INFO] [restartedMain] org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-13 13:05:46 [INFO] [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-13 13:05:46 [INFO] [restartedMain] o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-13 13:05:46 [WARN] [restartedMain] o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-13 13:05:46 [INFO] [restartedMain] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7021"]
+2026-05-13 13:05:46 [INFO] [restartedMain] o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 7021 (http) with context path '/payment/api'
+2026-05-13 13:05:46 [INFO] [restartedMain] c.e.u.p.PropaymentApplication - Started PropaymentApplication in 15.371 seconds (process running for 16.093)
+2026-05-13 13:05:54 [INFO] [http-nio-7021-exec-2] o.a.c.c.C.[.[.[/payment/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-13 13:05:54 [INFO] [http-nio-7021-exec-2] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-13 13:05:54 [INFO] [http-nio-7021-exec-2] o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-05-13 13:06:03 [INFO] [http-nio-7021-exec-3] c.e.u.p.d.service.PaymentService - === Inicio de solicitud de pago ===
+2026-05-13 13:06:03 [INFO] [http-nio-7021-exec-3] c.e.u.p.d.service.PaymentService - API Key recibida: pp_live_7fA92KxLmQ81zP4vNcT2eY
+2026-05-13 13:06:03 [ERROR] [http-nio-7021-exec-3] c.e.u.p.d.service.PaymentService - userEmail con formato inválido: pingola
+2026-05-13 13:06:03 [ERROR] [http-nio-7021-exec-3] c.e.u.p.w.c.GlobalExceptionHandler - Transacción inválida: required field is blank or null: userEmail — formato inválido
+2026-05-13 13:06:03 [WARN] [http-nio-7021-exec-3] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [co.edu.uptc.propayment.exceptions.InvalidTransactionException: required field is blank or null: userEmail — formato inválido]
+2026-05-13 13:09:38 [INFO] [http-nio-7021-exec-5] c.e.u.p.d.service.PaymentService - === Inicio de solicitud de pago ===
+2026-05-13 13:09:38 [INFO] [http-nio-7021-exec-5] c.e.u.p.d.service.PaymentService - API Key recibida: pp_live_7fA92KxLmQ81zP4vNcT2eY
+2026-05-13 13:09:38 [ERROR] [http-nio-7021-exec-5] c.e.u.p.d.service.PaymentService - cardNumber muy corto: 10
+2026-05-13 13:09:38 [ERROR] [http-nio-7021-exec-5] c.e.u.p.w.c.GlobalExceptionHandler - Tarjeta inválida: Invalid CardcardNumber debe tener al menos 16 dígitos
+2026-05-13 13:09:38 [WARN] [http-nio-7021-exec-5] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [co.edu.uptc.propayment.exceptions.InvalidCardException: Invalid CardcardNumber debe tener al menos 16 dígitos]
+2026-05-13 13:10:01 [INFO] [http-nio-7021-exec-7] c.e.u.p.d.service.PaymentService - === Inicio de solicitud de pago ===
+2026-05-13 13:10:01 [INFO] [http-nio-7021-exec-7] c.e.u.p.d.service.PaymentService - API Key recibida: pp_live_7fA92KxLmQ81zP4vNcT2eY
+2026-05-13 13:10:01 [INFO] [http-nio-7021-exec-7] c.e.u.p.d.service.PaymentService - Buscando empresa para API key...
+2026-05-13 13:10:01 [INFO] [http-nio-7021-exec-7] c.e.u.p.d.service.PaymentService - Empresa identificada: Compañia pingola
+2026-05-13 13:10:01 [INFO] [http-nio-7021-exec-7] c.e.u.p.d.service.PaymentService - Pago registrado con ID: 1 — estado inicial: PENDING
+2026-05-13 13:10:01 [INFO] [http-nio-7021-exec-7] c.e.u.p.d.service.PaymentService - Envío de pago a autorización externa
+2026-05-13 13:10:01 [INFO] [http-nio-7021-exec-7] c.e.u.p.d.service.PaymentService - Pago ID: 1 — resultado final: REJECTED
+2026-05-13 13:10:01 [INFO] [http-nio-7021-exec-7] c.e.u.p.d.service.PaymentService - === Fin de solicitud de pago ===
+2026-05-13 13:11:35 [INFO] [restartedMain] c.e.u.p.PropaymentApplication - Starting PropaymentApplication using Java 24.0.2 with PID 280 (E:\William\event\propayment\build\classes\java\main started by ruyk1 in E:\William\event\propayment)
+2026-05-13 13:11:35 [INFO] [restartedMain] c.e.u.p.PropaymentApplication - The following 1 profile is active: "dev"
+2026-05-13 13:11:35 [INFO] [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-05-13 13:11:35 [INFO] [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-05-13 13:11:35 [INFO] [restartedMain] o.s.b.d.c.l.DockerComposeLifecycleManager - Using Docker Compose file E:\William\event\propayment\compose.yaml
+2026-05-13 13:11:36 [INFO] [restartedMain] o.s.b.d.c.l.DockerComposeLifecycleManager - There are already Docker Compose services running, skipping startup
+2026-05-13 13:11:37 [INFO] [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-13 13:11:37 [INFO] [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 73 ms. Found 2 JPA repository interfaces.
+2026-05-13 13:11:38 [INFO] [restartedMain] o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 7021 (http)
+2026-05-13 13:11:38 [INFO] [restartedMain] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7021"]
+2026-05-13 13:11:38 [INFO] [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-13 13:11:38 [INFO] [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-05-13 13:11:38 [INFO] [restartedMain] o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 1707 ms
+2026-05-13 13:11:38 [INFO] [restartedMain] org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-13 13:11:38 [INFO] [restartedMain] org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-05-13 13:11:39 [INFO] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-13 13:11:39 [INFO] [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-13 13:11:39 [INFO] [restartedMain] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@48ac57f4
+2026-05-13 13:11:39 [INFO] [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-13 13:11:39 [INFO] [restartedMain] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://127.0.0.1:5251/payment_service_db?ApplicationName=propayment]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 16.13
+	Default catalog/schema: payment_service_db/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-13 13:11:40 [INFO] [restartedMain] org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-13 13:11:41 [INFO] [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-13 13:11:41 [INFO] [restartedMain] o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-13 13:11:41 [WARN] [restartedMain] o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-13 13:11:42 [INFO] [restartedMain] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7021"]
+2026-05-13 13:11:42 [INFO] [restartedMain] o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 7021 (http) with context path '/payment/api'
+2026-05-13 13:11:42 [INFO] [restartedMain] c.e.u.p.PropaymentApplication - Started PropaymentApplication in 7.986 seconds (process running for 8.609)
+2026-05-13 13:11:54 [INFO] [http-nio-7021-exec-1] o.a.c.c.C.[.[.[/payment/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-13 13:11:54 [INFO] [http-nio-7021-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-13 13:11:54 [INFO] [http-nio-7021-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-05-13 13:11:54 [INFO] [http-nio-7021-exec-1] c.e.u.p.d.service.PaymentService - === Inicio de solicitud de pago ===
+2026-05-13 13:11:54 [INFO] [http-nio-7021-exec-1] c.e.u.p.d.service.PaymentService - API Key recibida: pp_live_7fA92KxLmQ81zP4vNcT2eY
+2026-05-13 13:11:54 [INFO] [http-nio-7021-exec-1] c.e.u.p.d.service.PaymentService - Buscando empresa para API key...
+2026-05-13 13:11:55 [ERROR] [http-nio-7021-exec-1] c.e.u.p.d.service.PaymentService - Empresa no encontrada para API key: pp_live_7fA92KxLmQ81zP4vNcT2eY
+2026-05-13 13:11:55 [ERROR] [http-nio-7021-exec-1] o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [/payment/api] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: not-null property references a null or transient value for entity co.edu.uptc.propayment.persistence.entities.Payment.company] with root cause
+org.hibernate.PropertyValueException: not-null property references a null or transient value for entity co.edu.uptc.propayment.persistence.entities.Payment.company
+	at org.hibernate.engine.internal.Nullability.checkNullability(Nullability.java:120)
+	at org.hibernate.action.internal.AbstractEntityInsertAction.nullifyTransientReferencesIfNotAlready(AbstractEntityInsertAction.java:120)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:67)
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:667)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:291)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:270)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:322)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:371)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:285)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:215)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:133)
+	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:144)
+	at org.hibernate.event.internal.DefaultPersistEventListener.persist(DefaultPersistEventListener.java:90)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:74)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:50)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:138)
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:692)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:675)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:362)
+	at jdk.proxy4/jdk.proxy4.$Proxy128.persist(Unknown Source)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityHandlerInvocationHandler.invokeMethod(SharedEntityManagerCreator.java:240)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:386)
+	at jdk.proxy4/jdk.proxy4.$Proxy128.persist(Unknown Source)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:664)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:278)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:169)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:545)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:290)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:690)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:171)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:146)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:69)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:135)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:166)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:222)
+	at jdk.proxy4/jdk.proxy4.$Proxy135.save(Unknown Source)
+	at co.edu.uptc.propayment.domain.service.PaymentService.build(PaymentService.java:62)
+	at co.edu.uptc.propayment.web.controller.PaymentController.processPayment(PaymentController.java:23)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:252)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:184)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:934)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:853)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:86)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1000)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:649)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1801)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2026-05-13 13:14:57 [INFO] [http-nio-7021-exec-5] c.e.u.p.d.service.PaymentService - === Inicio de solicitud de pago ===
+2026-05-13 13:14:57 [INFO] [http-nio-7021-exec-5] c.e.u.p.d.service.PaymentService - API Key recibida: pp_live_7fA92KxLmQ81zP4vNcT2eY
+2026-05-13 13:14:57 [INFO] [http-nio-7021-exec-5] c.e.u.p.d.service.PaymentService - Buscando empresa para API key...
+2026-05-13 13:14:57 [INFO] [http-nio-7021-exec-5] c.e.u.p.d.service.PaymentService - Empresa identificada: Compañia pingola
+2026-05-13 13:14:57 [INFO] [http-nio-7021-exec-5] c.e.u.p.d.service.PaymentService - Pago registrado con ID: 1 — estado inicial: PENDING
+2026-05-13 13:14:57 [INFO] [http-nio-7021-exec-5] c.e.u.p.d.service.PaymentService - Envío de pago a autorización externa
+2026-05-13 13:14:57 [INFO] [http-nio-7021-exec-5] c.e.u.p.d.service.PaymentService - Pago ID: 1 — resultado final: REJECTED
+2026-05-13 13:14:57 [INFO] [http-nio-7021-exec-5] c.e.u.p.d.service.PaymentService - === Fin de solicitud de pago ===
+2026-05-13 13:15:18 [INFO] [http-nio-7021-exec-6] c.e.u.p.d.service.PaymentService - === Inicio de solicitud de pago ===
+2026-05-13 13:15:18 [INFO] [http-nio-7021-exec-6] c.e.u.p.d.service.PaymentService - API Key recibida: pp_live_7fA92KxLmQ81zP4vNcT2eY
+2026-05-13 13:15:18 [INFO] [http-nio-7021-exec-6] c.e.u.p.d.service.PaymentService - Buscando empresa para API key...
+2026-05-13 13:15:18 [INFO] [http-nio-7021-exec-6] c.e.u.p.d.service.PaymentService - Empresa identificada: Compañia pingola
+2026-05-13 13:15:18 [INFO] [http-nio-7021-exec-6] c.e.u.p.d.service.PaymentService - Pago registrado con ID: 2 — estado inicial: PENDING
+2026-05-13 13:15:18 [INFO] [http-nio-7021-exec-6] c.e.u.p.d.service.PaymentService - Envío de pago a autorización externa
+2026-05-13 13:15:18 [INFO] [http-nio-7021-exec-6] c.e.u.p.d.service.PaymentService - Pago ID: 2 — resultado final: APPROVED
+2026-05-13 13:15:18 [INFO] [http-nio-7021-exec-6] c.e.u.p.d.service.PaymentService - === Fin de solicitud de pago ===
+2026-05-13 15:36:59 [WARN] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@739fa98d (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-05-13 15:36:59 [WARN] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=47s945ms516µs300ns).
+2026-05-13 16:37:26 [WARN] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@7d2e9b06 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-05-13 16:37:53 [WARN] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=52s359ms286µs300ns).
+2026-05-13 16:40:13 [WARN] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@16182183 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-05-13 16:42:44 [WARN] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m48s363ms641µs400ns).
+2026-05-13 17:43:49 [WARN] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m3s999ms162µs400ns).
+2026-05-13 17:46:20 [WARN] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@44007cbf (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-05-13 18:46:48 [WARN] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h28s758ms119µs600ns).
+2026-05-13 19:47:46 [WARN] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@1a66acf3 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-05-13 19:47:51 [WARN] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m1s455ms423µs400ns).
+2026-05-13 19:50:07 [WARN] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@1f2f3722 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-05-13 19:52:06 [WARN] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@145ee935 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-05-13 19:52:06 [WARN] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m15s549ms39µs100ns).
+2026-05-13 19:57:26 [WARN] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m19s855ms690µs400ns).
+2026-05-13 21:00:17 [WARN] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@7e5ee42e (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-05-13 21:00:17 [WARN] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h50s381ms941µs500ns).
+2026-05-13 21:06:02 [WARN] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@556bda53 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-05-13 21:06:07 [WARN] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@6144b9c6 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.

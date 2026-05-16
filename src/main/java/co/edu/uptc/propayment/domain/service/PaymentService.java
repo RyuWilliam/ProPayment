@@ -3,6 +3,9 @@ package co.edu.uptc.propayment.domain.service;
 
 import co.edu.uptc.propayment.domain.model.Card;
 import co.edu.uptc.propayment.domain.model.Transaction;
+import co.edu.uptc.propayment.exceptions.CompanyNotFoundException;
+import co.edu.uptc.propayment.exceptions.InvalidCardException;
+import co.edu.uptc.propayment.exceptions.InvalidTransactionException;
 import co.edu.uptc.propayment.persistence.entities.Company;
 import co.edu.uptc.propayment.persistence.entities.Payment;
 import co.edu.uptc.propayment.persistence.enums.CardType;
@@ -12,9 +15,13 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Service
 public class PaymentService {
+    private static final Logger log = LoggerFactory.getLogger(PaymentService.class);
+
 
     private final PaymentJpaRepository paymentRepository;
     private final CompanyService companyService;
@@ -31,23 +38,113 @@ public class PaymentService {
 
     public Payment build(String apiKey, Transaction transaction) {
 
+        log.info("=== Inicio de solicitud de pago ===");
+        log.info("API Key recibida: {}", apiKey);
+
+        if (apiKey == null || apiKey.isBlank()) {
+            log.error("API Key nula o vacía");
+            throw new InvalidTransactionException("API-Key header");
+        }
+
+        if (transaction == null) {
+            log.error("Transaction nula");
+            throw new InvalidTransactionException("transaction body");
+        }
+
+        validateTransaction(transaction);
+        Payment payment = initialBuild(transaction);
+        log.info("Buscando empresa para API key...");
         Company company = companyService.findByApiKey(apiKey);
 
+        if (company == null) {
+            log.error("Empresa no encontrada para API key: {}", apiKey);
+            payment.setStatus(PaymentStatus.REJECTED);
+            paymentRepository.save(payment);
+            throw new CompanyNotFoundException(apiKey);
+        }
+
+        payment.setCompany(company);
+        log.info("Empresa identificada: {}", company.getCompanyName());
+        Payment persisted = paymentRepository.save(payment);
+        log.info("Pago registrado con ID: {} — estado inicial: PENDING", persisted.getPaymentId());
+        log.info("Envío de pago a autorización externa");
+        /*
+            * Aquí va el serverless
+         */
         boolean authorized = mockAuthorize(transaction.getUserEmail());
 
+        persisted.setStatus(authorized ? PaymentStatus.APPROVED : PaymentStatus.REJECTED);
+        Payment updated = paymentRepository.save(persisted);
+
+        log.info("Pago ID: {} — resultado final: {}", updated.getPaymentId(), updated.getStatus());
+        log.info("=== Fin de solicitud de pago ===");
+
+        return updated;
+    }
+
+    private Payment initialBuild(Transaction transaction){
         Payment payment = new Payment();
-        payment.setCompany(company);
+        payment.setPaymentDate(LocalDateTime.now());
+        payment.setStatus(PaymentStatus.PENDING);
         payment.setUserEmail(transaction.getUserEmail());
         payment.setAmount(transaction.getAmount());
+
         SimplifiedCard simplifiedCard = new SimplifiedCard(transaction.getCard());
         payment.setCardType(simplifiedCard.getCardType());
         payment.setCardLast4(simplifiedCard.getCardLast4());
         payment.setCardHolderName(simplifiedCard.getCardHolderName());
-        payment.setPaymentDate(LocalDateTime.now());
-        payment.setStatus(authorized ? PaymentStatus.APPROVED : PaymentStatus.REJECTED);
         return payment;
     }
+    private void validateTransaction(Transaction transaction) {
+        if (transaction.getUserEmail() == null || transaction.getUserEmail().isBlank()) {
+            log.error("userEmail nulo o vacío");
+            throw new InvalidTransactionException("userEmail");
+        }
+        if (!transaction.getUserEmail().contains("@")) {
+            log.error("userEmail con formato inválido: {}", transaction.getUserEmail());
+            throw new InvalidTransactionException("userEmail — formato inválido");
+        }
+        if (transaction.getAmount() == null) {
+            log.error("amount nulo");
+            throw new InvalidTransactionException("amount");
+        }
+        if (transaction.getAmount() <= 0) {
+            log.error("amount inválido: {}", transaction.getAmount());
+            throw new InvalidTransactionException("amount — debe ser mayor a 0");
+        }
+        if (transaction.getCard() == null) {
+            log.error("card nula");
+            throw new InvalidTransactionException("card");
+        }
 
+        validateCard(transaction.getCard());
+    }
+
+
+
+
+    private void validateCard(Card card) {
+        if (card.getCardNumber() == null || card.getCardNumber().isBlank()) {
+            log.error("cardNumber nulo");
+            throw new InvalidCardException("cardNumber nulo o vacío");
+        }
+        if (card.getCardNumber().length() < 16) {
+            log.error("cardNumber muy corto: {}", card.getCardNumber().length());
+            throw new InvalidCardException("cardNumber debe tener al menos 16 dígitos");
+        }
+        if (!card.getCardNumber().matches("\\d+")) {
+            log.error("cardNumber contiene caracteres no numéricos");
+            throw new InvalidCardException("cardNumber solo debe contener dígitos");
+        }
+        if (card.getCardHolderName() == null || card.getCardHolderName().isBlank()) {
+            log.error("cardHolderName nulo");
+            throw new InvalidCardException("cardHolderName nulo o vacío");
+        }
+        if (card.getCardType() == null) {
+            log.error("cardType nulo");
+            throw new InvalidCardException("cardType nulo — debe ser VISA o MASTERCARD");
+        }
+    }
     private boolean mockAuthorize(String userEmail) {
         List<String> approvedEmails = List.of(
                 "test@approved.com",
