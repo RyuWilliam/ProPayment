@@ -2,6 +2,8 @@ package co.edu.uptc.propayment.domain.service;
 
 
 import co.edu.uptc.propayment.domain.model.Card;
+import co.edu.uptc.propayment.domain.model.Report;
+import co.edu.uptc.propayment.domain.model.ReportItem;
 import co.edu.uptc.propayment.domain.model.Transaction;
 import co.edu.uptc.propayment.exceptions.CompanyNotFoundException;
 import co.edu.uptc.propayment.exceptions.InvalidCardException;
@@ -39,7 +41,6 @@ public class PaymentService {
     public Payment build(String apiKey, Transaction transaction) {
 
         log.info("=== Inicio de solicitud de pago ===");
-        log.info("API Key recibida: {}", apiKey);
 
         if (apiKey == null || apiKey.isBlank()) {
             log.error("API Key nula o vacía");
@@ -57,7 +58,7 @@ public class PaymentService {
         Company company = companyService.findByApiKey(apiKey);
 
         if (company == null) {
-            log.error("Empresa no encontrada para API key: {}", apiKey);
+            log.error("Empresa no encontrada para API el key");
             payment.setStatus(PaymentStatus.REJECTED);
             paymentRepository.save(payment);
             throw new CompanyNotFoundException(apiKey);
@@ -88,6 +89,8 @@ public class PaymentService {
         payment.setStatus(PaymentStatus.PENDING);
         payment.setUserEmail(transaction.getUserEmail());
         payment.setAmount(transaction.getAmount());
+        payment.setTransferredToCompany(false);
+        payment.setTransferDate(null);
 
         SimplifiedCard simplifiedCard = new SimplifiedCard(transaction.getCard());
         payment.setCardType(simplifiedCard.getCardType());
@@ -154,6 +157,85 @@ public class PaymentService {
         return approvedEmails.contains(userEmail);
     }
 
+
+
+
+    public boolean payToCompany(String apiKey) {
+        Company company = companyService.findByApiKey(apiKey);
+        if (company == null) throw new CompanyNotFoundException(apiKey);
+
+        List<Payment> toTransfer = paymentRepository
+                .findByCompanyAndStatusAndTransferredToCompanyFalse(
+                        company, PaymentStatus.APPROVED
+                );
+
+        if (toTransfer.isEmpty()) return false;
+
+        toTransfer.forEach(p -> {
+            p.setTransferredToCompany(true);
+            p.setTransferDate(LocalDateTime.now());
+            paymentRepository.save(p);
+        });
+
+        log.info("Transferidos {} pagos a empresa '{}'", toTransfer.size(), company.getCompanyName());
+        return true;
+    }
+
+
+    public Report generateApprovedTransferredReport(String apiKey) {
+        Company company = companyService.findByApiKey(apiKey);
+        if (company == null) throw new CompanyNotFoundException(apiKey);
+
+        List<Payment> payments = paymentRepository
+                .findByCompanyAndStatusAndTransferredToCompanyTrue(
+                        company, PaymentStatus.APPROVED
+                );
+
+        log.info("Reporte 1 — empresa '{}': {} pagos aprobados y transferidos",
+                company.getCompanyName(), payments.size());
+        return new Report(company.getCompanyName(), convertToItems(payments));
+    }
+    public Report generateApprovedNotTransferredReport(String apiKey) {
+        Company company = companyService.findByApiKey(apiKey);
+        if (company == null) throw new CompanyNotFoundException(apiKey);
+
+        List<Payment> payments = paymentRepository
+                .findByCompanyAndStatusAndTransferredToCompanyFalse(
+                        company, PaymentStatus.APPROVED
+                );
+
+        log.info("Reporte 2 — empresa '{}': {} pagos aprobados sin transferir",
+                company.getCompanyName(), payments.size());
+        return new Report(company.getCompanyName(), convertToItems(payments));
+    }
+    public Report generateNotApprovedNotTransferredReport(String apiKey) {
+        Company company = companyService.findByApiKey(apiKey);
+        if (company == null) throw new CompanyNotFoundException(apiKey);
+
+        List<Payment> payments = paymentRepository
+                .findByCompanyAndTransferredToCompanyFalseAndStatusNot(
+                        company, PaymentStatus.APPROVED
+                );
+
+        log.info("Reporte 3 — empresa '{}': {} pagos no aprobados sin transferir",
+                company.getCompanyName(), payments.size());
+        return new Report(company.getCompanyName(), convertToItems(payments));
+    }
+
+    private List<ReportItem> convertToItems(List<Payment> payments) {
+        return payments.stream()
+                .map(payment -> new ReportItem(
+                        payment.getAmount(),
+                        payment.getCardType(),
+                        payment.getPaymentId(),
+                        payment.getCardLast4(),
+                        payment.getPaymentDate(),
+                        payment.getStatus()
+                ))
+                .toList();
+    }
+
+
     private static class SimplifiedCard {
         private final String cardLast4;
         private String cardHolderName;
@@ -183,4 +265,7 @@ public class PaymentService {
         }
 
     }
+
+
+
 }

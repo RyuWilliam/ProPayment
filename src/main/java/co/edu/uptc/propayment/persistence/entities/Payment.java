@@ -39,6 +39,12 @@ public class Payment {
     @Column(nullable = false)
     private PaymentStatus status;
 
+    @Column(nullable = false)
+    private boolean transferredToCompany;
+
+    @Column
+    private LocalDateTime transferDate;
+
     public Integer getPaymentId() {
         return paymentId;
     }
@@ -109,5 +115,29 @@ public class Payment {
 
     public void setStatus(PaymentStatus status) {
         this.status = status;
+    }
+
+    public boolean isTransferredToCompany() {
+        return transferredToCompany;
+    }
+
+    public void setTransferredToCompany(boolean transferredToCompany) {
+
+        if (transferredToCompany && this.status != PaymentStatus.APPROVED) {
+            throw new IllegalStateException(
+                    "Only APPROVED payments can be transferred to the company"
+            );
+        }
+
+        this.transferredToCompany = transferredToCompany;
+    }
+
+
+    public LocalDateTime getTransferDate() {
+        return transferDate;
+    }
+
+    public void setTransferDate(LocalDateTime transferDate) {
+        this.transferDate = transferDate;
     }
 }
