@@ -74,7 +74,11 @@ async function handlePayment(requestBody) {
 
   const payloadError = validatePayload(payload);
   if (payloadError) {
-    return buildRejectedResponse("visa", 400, payloadError, payload.currency || "N/A");
+    const currency =
+      payload && typeof payload === "object" && typeof payload.currency === "string"
+        ? payload.currency
+        : "N/A";
+    return buildRejectedResponse("visa", 400, payloadError, currency);
   }
 
   const providerDecision = validateAgainstProvider(payload);
