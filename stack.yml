@@ -22,3 +22,22 @@ functions:
     requests:
       memory: 64Mi
       cpu: 50m
+
+  mastercard-validator:
+    lang: dockerfile
+    handler: ./functions/mastercard-validator
+    image: ${DOCKER_USER:-changeme}/mastercard-validator:${IMAGE_TAG:-0.1.0}
+    environment:
+      PAYMENT_PROVIDER: mastercard
+      USE_DB: "false"
+      LOG_LEVEL: info
+      max_inflight: "20"
+    labels:
+      com.openfaas.scale.min: "1"
+      com.openfaas.scale.max: "5"
+    limits:
+      memory: 128Mi
+      cpu: 100m
+    requests:
+      memory: 64Mi
+      cpu: 50m
