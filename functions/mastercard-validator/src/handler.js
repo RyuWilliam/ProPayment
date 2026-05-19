@@ -1,24 +1,10 @@
 "use strict";
 
-const { randomUUID } = require("crypto");
 const { findCard } = require("./provider-store");
+const { buildRejectedResponse, buildDecisionResponse } = require("./response");
 
 function isIntegerBetween(value, min, max) {
   return Number.isInteger(value) && value >= min && value <= max;
-}
-
-function nowIso() {
-  return new Date().toISOString();
-}
-
-function buildResponse(statusCode, payload) {
-  return {
-    statusCode,
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(payload)
-  };
 }
 
 function validatePayload(payload) {
@@ -83,40 +69,25 @@ async function handlePayment(requestBody) {
   try {
     payload = JSON.parse(requestBody || "{}");
   } catch {
-    return buildResponse(400, {
-      transaction_id: randomUUID(),
-      provider: "mastercard",
-      decision: "rejected",
-      reason_code: "INVALID_JSON",
-      authorized_amount: 0,
-      currency: "N/A",
-      timestamp: nowIso()
-    });
+    return buildRejectedResponse("mastercard", 400, "INVALID_JSON");
   }
 
   const payloadError = validatePayload(payload);
   if (payloadError) {
-    return buildResponse(400, {
-      transaction_id: randomUUID(),
-      provider: "mastercard",
-      decision: "rejected",
-      reason_code: payloadError,
-      authorized_amount: 0,
-      currency: payload.currency || "N/A",
-      timestamp: nowIso()
-    });
+    const currency =
+      payload && typeof payload === "object" ? payload.currency || "N/A" : "N/A";
+    return buildRejectedResponse("mastercard", 400, payloadError, currency);
   }
 
   const providerDecision = validateAgainstProvider(payload);
-  return buildResponse(providerDecision.statusCode, {
-    transaction_id: randomUUID(),
-    provider: "mastercard",
-    decision: providerDecision.decision,
-    reason_code: providerDecision.reasonCode,
-    authorized_amount: providerDecision.decision === "approved" ? payload.amount : 0,
-    currency: payload.currency,
-    timestamp: nowIso()
-  });
+  return buildDecisionResponse(
+    "mastercard",
+    providerDecision.statusCode,
+    providerDecision.decision,
+    providerDecision.reasonCode,
+    payload.amount,
+    payload.currency
+  );
 }
 
 module.exports = {
