@@ -2,7 +2,6 @@ package co.edu.uptc.propayment.domain.model;
 
 import co.edu.uptc.propayment.persistence.enums.CardType;
 
-import java.time.LocalDateTime;
 
 public class Card {
     private CardType cardType;

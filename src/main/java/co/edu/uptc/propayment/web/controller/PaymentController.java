@@ -1,6 +1,7 @@
 package co.edu.uptc.propayment.web.controller;
 
 
+import co.edu.uptc.propayment.domain.model.PaymentResponse;
 import co.edu.uptc.propayment.domain.model.Report;
 import co.edu.uptc.propayment.domain.model.Transaction;
 import co.edu.uptc.propayment.domain.service.PaymentService;
@@ -20,10 +21,10 @@ public class PaymentController {
 
 
     @PostMapping("/process")
-        public PaymentStatus processPayment(@RequestHeader("API-Key") String apiKey,
-                                      @RequestBody Transaction transaction)  {
-            Payment payment = paymentService.build(apiKey, transaction);
-            return payment.getStatus();
+        public PaymentResponse processPayment(@RequestHeader("API-Key") String apiKey,
+                                              @RequestBody Transaction transaction)  {
+            Payment payment = paymentService.processPayment(apiKey, transaction);
+            return new PaymentResponse(payment.getStatus(), "xd");
         }
 
     @GetMapping("/approved-transferred")

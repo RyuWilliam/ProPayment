@@ -1,10 +1,7 @@
 package co.edu.uptc.propayment.domain.service;
 
 
-import co.edu.uptc.propayment.domain.model.Card;
-import co.edu.uptc.propayment.domain.model.Report;
-import co.edu.uptc.propayment.domain.model.ReportItem;
-import co.edu.uptc.propayment.domain.model.Transaction;
+import co.edu.uptc.propayment.domain.model.*;
 import co.edu.uptc.propayment.exceptions.CompanyNotFoundException;
 import co.edu.uptc.propayment.exceptions.InvalidCardException;
 import co.edu.uptc.propayment.exceptions.InvalidTransactionException;
@@ -38,7 +35,7 @@ public class PaymentService {
         return paymentRepository.save(payment);
     }
 
-    public Payment build(String apiKey, Transaction transaction) {
+    public Payment processPayment(String apiKey, Transaction transaction) {
 
         log.info("=== Inicio de solicitud de pago ===");
 
@@ -69,18 +66,39 @@ public class PaymentService {
         Payment persisted = paymentRepository.save(payment);
         log.info("Pago registrado con ID: {} — estado inicial: PENDING", persisted.getPaymentId());
         log.info("Envío de pago a autorización externa");
-        /*
-            * Aquí va el serverless
-         */
-        boolean authorized = mockAuthorize(transaction.getUserEmail());
 
-        persisted.setStatus(authorized ? PaymentStatus.APPROVED : PaymentStatus.REJECTED);
+        PaymentResponse response = sendToBank(transaction.getCard());
+        persisted.setStatus(response.getStatus());
         Payment updated = paymentRepository.save(persisted);
 
         log.info("Pago ID: {} — resultado final: {}", updated.getPaymentId(), updated.getStatus());
         log.info("=== Fin de solicitud de pago ===");
 
         return updated;
+    }
+
+    public PaymentResponse sendToBank(Card card) {
+        if(card.getCardType() == CardType.VISA){
+            return sendToVISABank(card.getCardNumber(), card.getCardHolderName());
+        } else if (card.getCardType() == CardType.MASTERCARD) {
+            return sendToMasterCardBank(card.getCardNumber(), card.getCardHolderName());
+        } else {
+            return new PaymentResponse(PaymentStatus.REJECTED, "Pago rechazado: tipo de tarjeta no soportada");
+        }
+    }
+
+    private PaymentResponse sendToVISABank(String cardNumber, String cardHolderName) {
+        // Simulación de respuesta del banco VISA
+        boolean approved = cardNumber.endsWith("0") || cardNumber.endsWith("5");
+        String message = approved ? "Pago aprobado por VISA" : "Pago rechazado por VISA";
+        return new PaymentResponse(approved ? PaymentStatus.APPROVED : PaymentStatus.REJECTED, message);
+    }
+
+    private PaymentResponse sendToMasterCardBank(String cardNumber, String cardHolderName) {
+        // Simulación de respuesta del banco MasterCard
+        boolean approved = cardNumber.endsWith("1") || cardNumber.endsWith("6");
+        String message = approved ? "Pago aprobado por MasterCard" : "Pago rechazado por MasterCard";
+        return new PaymentResponse(approved ? PaymentStatus.APPROVED : PaymentStatus.REJECTED, message);
     }
 
     private Payment initialBuild(Transaction transaction){
@@ -148,16 +166,6 @@ public class PaymentService {
             throw new InvalidCardException("cardType nulo — debe ser VISA o MASTERCARD");
         }
     }
-    private boolean mockAuthorize(String userEmail) {
-        List<String> approvedEmails = List.of(
-                "test@approved.com",
-                "demo@visa.com",
-                "pagador@ok.com"
-        );
-        return approvedEmails.contains(userEmail);
-    }
-
-
 
 
     public boolean payToCompany(String apiKey) {
