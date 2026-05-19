@@ -74,7 +74,9 @@ async function handlePayment(requestBody) {
 
   const payloadError = validatePayload(payload);
   if (payloadError) {
-    return buildRejectedResponse("mastercard", 400, payloadError, payload.currency || "N/A");
+    const currency =
+      payload && typeof payload === "object" ? payload.currency || "N/A" : "N/A";
+    return buildRejectedResponse("mastercard", 400, payloadError, currency);
   }
 
   const providerDecision = validateAgainstProvider(payload);
