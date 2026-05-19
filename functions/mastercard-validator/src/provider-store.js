@@ -3,6 +3,7 @@
 const cards = [
   {
     cardNumber: "5555555555554444",
+    holderName: "Alice Smith",
     expiryMonth: 11,
     expiryYear: 2029,
     cvv: "123",
@@ -10,6 +11,7 @@ const cards = [
   },
   {
     cardNumber: "5105105105105100",
+    holderName: "Bob Smith",
     expiryMonth: 9,
     expiryYear: 2028,
     cvv: "456",
