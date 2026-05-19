@@ -4,6 +4,10 @@ const test = require("node:test");
 const assert = require("node:assert/strict");
 const { handlePayment } = require("../src/handler");
 
+function assertResponseShape(body) {
+  assert.deepEqual(Object.keys(body).sort(), ["reason", "status"]);
+}
+
 test("approves valid visa card with matching holder name and cvv", async () => {
   const response = await handlePayment(
     JSON.stringify({
@@ -15,11 +19,9 @@ test("approves valid visa card with matching holder name and cvv", async () => {
 
   assert.equal(response.statusCode, 200);
   const body = JSON.parse(response.body);
-  assert.equal(body.provider, "visa");
-  assert.equal(body.decision, "approved");
-  assert.equal(body.reason_code, "APPROVED");
-  assert.equal(body.authorized_amount, undefined);
-  assert.equal(body.currency, undefined);
+  assertResponseShape(body);
+  assert.equal(body.status, "APPROVED");
+  assert.equal(body.reason, "APPROVED");
 });
 
 test("approves valid visa card without optional cvv", async () => {
@@ -32,8 +34,9 @@ test("approves valid visa card without optional cvv", async () => {
 
   assert.equal(response.statusCode, 200);
   const body = JSON.parse(response.body);
-  assert.equal(body.decision, "approved");
-  assert.equal(body.reason_code, "APPROVED");
+  assertResponseShape(body);
+  assert.equal(body.status, "APPROVED");
+  assert.equal(body.reason, "APPROVED");
 });
 
 test("rejects card not found with 404", async () => {
@@ -47,8 +50,9 @@ test("rejects card not found with 404", async () => {
 
   assert.equal(response.statusCode, 404);
   const body = JSON.parse(response.body);
-  assert.equal(body.decision, "rejected");
-  assert.equal(body.reason_code, "CARD_NOT_FOUND");
+  assertResponseShape(body);
+  assert.equal(body.status, "REJECTED");
+  assert.equal(body.reason, "CARD_NOT_FOUND");
 });
 
 test("rejects mismatching holder name with 422", async () => {
@@ -62,8 +66,9 @@ test("rejects mismatching holder name with 422", async () => {
 
   assert.equal(response.statusCode, 422);
   const body = JSON.parse(response.body);
-  assert.equal(body.decision, "rejected");
-  assert.equal(body.reason_code, "HOLDER_NAME_MISMATCH");
+  assertResponseShape(body);
+  assert.equal(body.status, "REJECTED");
+  assert.equal(body.reason, "HOLDER_NAME_MISMATCH");
 });
 
 test("rejects invalid holder name type/empty with 400", async () => {
@@ -76,7 +81,9 @@ test("rejects invalid holder name type/empty with 400", async () => {
 
   assert.equal(response.statusCode, 400);
   const body = JSON.parse(response.body);
-  assert.equal(body.reason_code, "INVALID_HOLDER_NAME");
+  assertResponseShape(body);
+  assert.equal(body.status, "REJECTED");
+  assert.equal(body.reason, "INVALID_HOLDER_NAME");
 });
 
 test("rejects invalid json with 400", async () => {
@@ -84,9 +91,9 @@ test("rejects invalid json with 400", async () => {
 
   assert.equal(response.statusCode, 400);
   const body = JSON.parse(response.body);
-  assert.equal(body.provider, "visa");
-  assert.equal(body.decision, "rejected");
-  assert.equal(body.reason_code, "INVALID_JSON");
+  assertResponseShape(body);
+  assert.equal(body.status, "REJECTED");
+  assert.equal(body.reason, "INVALID_JSON");
 });
 
 test("rejects blocked visa card with 403", async () => {
@@ -100,7 +107,9 @@ test("rejects blocked visa card with 403", async () => {
 
   assert.equal(response.statusCode, 403);
   const body = JSON.parse(response.body);
-  assert.equal(body.reason_code, "CARD_BLOCKED");
+  assertResponseShape(body);
+  assert.equal(body.status, "REJECTED");
+  assert.equal(body.reason, "CARD_BLOCKED");
 });
 
 test("rejects incorrect cvv with 401 when provided", async () => {
@@ -114,7 +123,9 @@ test("rejects incorrect cvv with 401 when provided", async () => {
 
   assert.equal(response.statusCode, 401);
   const body = JSON.parse(response.body);
-  assert.equal(body.reason_code, "INVALID_CVV");
+  assertResponseShape(body);
+  assert.equal(body.status, "REJECTED");
+  assert.equal(body.reason, "INVALID_CVV");
 });
 
 test("rejects malformed cvv with 400 when provided", async () => {
@@ -128,5 +139,7 @@ test("rejects malformed cvv with 400 when provided", async () => {
 
   assert.equal(response.statusCode, 400);
   const body = JSON.parse(response.body);
-  assert.equal(body.reason_code, "INVALID_CVV");
+  assertResponseShape(body);
+  assert.equal(body.status, "REJECTED");
+  assert.equal(body.reason, "INVALID_CVV");
 });

@@ -16,6 +16,30 @@ const cards = [
     expiryYear: 2028,
     cvv: "456",
     status: "blocked"
+  },
+  {
+    cardNumber: "5222222222222222",
+    holderName: "Charlie Green",
+    expiryMonth: 6,
+    expiryYear: 2030,
+    cvv: "789",
+    status: "active"
+  },
+  {
+    cardNumber: "5333333333333333",
+    holderName: "David Miller",
+    expiryMonth: 4,
+    expiryYear: 2031,
+    cvv: "111",
+    status: "active"
+  },
+  {
+    cardNumber: "5444444444444444",
+    holderName: "Eva Taylor",
+    expiryMonth: 10,
+    expiryYear: 2027,
+    cvv: "222",
+    status: "blocked"
   }
 ];
 
