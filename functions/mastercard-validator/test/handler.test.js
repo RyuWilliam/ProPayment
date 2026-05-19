@@ -4,15 +4,12 @@ const test = require("node:test");
 const assert = require("node:assert/strict");
 const { handlePayment } = require("../src/handler");
 
-test("approves valid mastercard card from mock store", async () => {
+test("approves valid mastercard card with matching holder name and cvv", async () => {
   const response = await handlePayment(
     JSON.stringify({
+      holder_name: "Alice Smith",
       card_number: "5555555555554444",
-      expiry_month: 11,
-      expiry_year: 2029,
-      cvv: "123",
-      amount: 125.0,
-      currency: "USD"
+      cvv: "123"
     })
   );
 
@@ -21,24 +18,65 @@ test("approves valid mastercard card from mock store", async () => {
   assert.equal(body.provider, "mastercard");
   assert.equal(body.decision, "approved");
   assert.equal(body.reason_code, "APPROVED");
+  assert.equal(body.authorized_amount, undefined);
+  assert.equal(body.currency, undefined);
 });
 
-test("rejects blocked mastercard card with 403", async () => {
+test("approves valid mastercard card without optional cvv", async () => {
   const response = await handlePayment(
     JSON.stringify({
-      card_number: "5105105105105100",
-      expiry_month: 9,
-      expiry_year: 2028,
-      cvv: "456",
-      amount: 35.5,
-      currency: "USD"
+      holder_name: "Alice Smith",
+      card_number: "5555555555554444"
     })
   );
 
-  assert.equal(response.statusCode, 403);
+  assert.equal(response.statusCode, 200);
+  const body = JSON.parse(response.body);
+  assert.equal(body.decision, "approved");
+  assert.equal(body.reason_code, "APPROVED");
+});
+
+test("rejects card not found with 404", async () => {
+  const response = await handlePayment(
+    JSON.stringify({
+      holder_name: "Alice Smith",
+      card_number: "5555555555551122",
+      cvv: "123"
+    })
+  );
+
+  assert.equal(response.statusCode, 404);
   const body = JSON.parse(response.body);
   assert.equal(body.decision, "rejected");
-  assert.equal(body.reason_code, "CARD_BLOCKED");
+  assert.equal(body.reason_code, "CARD_NOT_FOUND");
+});
+
+test("rejects mismatching holder name with 422", async () => {
+  const response = await handlePayment(
+    JSON.stringify({
+      holder_name: "Wrong Name",
+      card_number: "5555555555554444",
+      cvv: "123"
+    })
+  );
+
+  assert.equal(response.statusCode, 422);
+  const body = JSON.parse(response.body);
+  assert.equal(body.decision, "rejected");
+  assert.equal(body.reason_code, "HOLDER_NAME_MISMATCH");
+});
+
+test("rejects invalid holder name type/empty with 400", async () => {
+  const response = await handlePayment(
+    JSON.stringify({
+      holder_name: "   ",
+      card_number: "5555555555554444"
+    })
+  );
+
+  assert.equal(response.statusCode, 400);
+  const body = JSON.parse(response.body);
+  assert.equal(body.reason_code, "INVALID_HOLDER_NAME");
 });
 
 test("rejects invalid json with 400", async () => {
@@ -51,19 +89,44 @@ test("rejects invalid json with 400", async () => {
   assert.equal(body.reason_code, "INVALID_JSON");
 });
 
-test("rejects invalid amount with 400", async () => {
+test("rejects blocked mastercard card with 403", async () => {
   const response = await handlePayment(
     JSON.stringify({
+      holder_name: "Bob Smith",
+      card_number: "5105105105105100",
+      cvv: "456"
+    })
+  );
+
+  assert.equal(response.statusCode, 403);
+  const body = JSON.parse(response.body);
+  assert.equal(body.reason_code, "CARD_BLOCKED");
+});
+
+test("rejects incorrect cvv with 401 when provided", async () => {
+  const response = await handlePayment(
+    JSON.stringify({
+      holder_name: "Alice Smith",
       card_number: "5555555555554444",
-      expiry_month: 11,
-      expiry_year: 2029,
-      cvv: "123",
-      amount: 0,
-      currency: "USD"
+      cvv: "999"
+    })
+  );
+
+  assert.equal(response.statusCode, 401);
+  const body = JSON.parse(response.body);
+  assert.equal(body.reason_code, "INVALID_CVV");
+});
+
+test("rejects malformed cvv with 400 when provided", async () => {
+  const response = await handlePayment(
+    JSON.stringify({
+      holder_name: "Alice Smith",
+      card_number: "5555555555554444",
+      cvv: "12"
     })
   );
 
   assert.equal(response.statusCode, 400);
   const body = JSON.parse(response.body);
-  assert.equal(body.reason_code, "INVALID_AMOUNT");
+  assert.equal(body.reason_code, "INVALID_CVV");
 });

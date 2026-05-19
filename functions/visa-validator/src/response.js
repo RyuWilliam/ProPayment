@@ -16,26 +16,22 @@ function buildJsonResponse(statusCode, payload) {
   };
 }
 
-function buildRejectedResponse(provider, statusCode, reasonCode, currency = "N/A") {
+function buildRejectedResponse(provider, statusCode, reasonCode) {
   return buildJsonResponse(statusCode, {
     transaction_id: randomUUID(),
     provider,
     decision: "rejected",
     reason_code: reasonCode,
-    authorized_amount: 0,
-    currency,
     timestamp: nowIso()
   });
 }
 
-function buildDecisionResponse(provider, statusCode, decision, reasonCode, amount, currency) {
+function buildDecisionResponse(provider, statusCode, decision, reasonCode) {
   return buildJsonResponse(statusCode, {
     transaction_id: randomUUID(),
     provider,
     decision,
     reason_code: reasonCode,
-    authorized_amount: decision === "approved" ? amount : 0,
-    currency,
     timestamp: nowIso()
   });
 }

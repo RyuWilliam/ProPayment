@@ -3,40 +3,23 @@
 const { findCard } = require("./provider-store");
 const { buildRejectedResponse, buildDecisionResponse } = require("./response");
 
-function isIntegerBetween(value, min, max) {
-  return Number.isInteger(value) && value >= min && value <= max;
-}
-
 function validatePayload(payload) {
   if (!payload || typeof payload !== "object") {
     return "INVALID_PAYLOAD";
   }
 
-  const { card_number, expiry_month, expiry_year, cvv, amount, currency } = payload;
+  const { holder_name, card_number, cvv } = payload;
+
+  if (typeof holder_name !== "string" || holder_name.trim() === "") {
+    return "INVALID_HOLDER_NAME";
+  }
 
   if (typeof card_number !== "string" || !/^(5[1-5]|2[2-7])\d{14,17}$/.test(card_number)) {
     return "INVALID_CARD_NUMBER";
   }
 
-  if (!isIntegerBetween(expiry_month, 1, 12)) {
-    return "INVALID_EXPIRY_MONTH";
-  }
-
-  const currentYear = new Date().getUTCFullYear();
-  if (!Number.isInteger(expiry_year) || expiry_year < currentYear) {
-    return "INVALID_EXPIRY_YEAR";
-  }
-
-  if (typeof cvv !== "string" || !/^\d{3,4}$/.test(cvv)) {
+  if (cvv !== undefined && (typeof cvv !== "string" || !/^\d{3,4}$/.test(cvv))) {
     return "INVALID_CVV";
-  }
-
-  if (typeof amount !== "number" || amount <= 0) {
-    return "INVALID_AMOUNT";
-  }
-
-  if (typeof currency !== "string" || !/^[A-Z]{3}$/.test(currency)) {
-    return "INVALID_CURRENCY";
   }
 
   return null;
@@ -49,15 +32,15 @@ function validateAgainstProvider(payload) {
     return { decision: "rejected", reasonCode: "CARD_NOT_FOUND", statusCode: 404 };
   }
 
+  if (card.holderName.toLowerCase() !== payload.holder_name.trim().toLowerCase()) {
+    return { decision: "rejected", reasonCode: "HOLDER_NAME_MISMATCH", statusCode: 422 };
+  }
+
   if (card.status !== "active") {
     return { decision: "rejected", reasonCode: "CARD_BLOCKED", statusCode: 403 };
   }
 
-  if (card.expiryMonth !== payload.expiry_month || card.expiryYear !== payload.expiry_year) {
-    return { decision: "rejected", reasonCode: "CARD_EXPIRED", statusCode: 422 };
-  }
-
-  if (card.cvv !== payload.cvv) {
+  if (payload.cvv !== undefined && card.cvv !== payload.cvv) {
     return { decision: "rejected", reasonCode: "INVALID_CVV", statusCode: 401 };
   }
 
@@ -74,7 +57,7 @@ async function handlePayment(requestBody) {
 
   const payloadError = validatePayload(payload);
   if (payloadError) {
-    return buildRejectedResponse("mastercard", 400, payloadError, payload.currency || "N/A");
+    return buildRejectedResponse("mastercard", 400, payloadError);
   }
 
   const providerDecision = validateAgainstProvider(payload);
@@ -82,9 +65,7 @@ async function handlePayment(requestBody) {
     "mastercard",
     providerDecision.statusCode,
     providerDecision.decision,
-    providerDecision.reasonCode,
-    payload.amount,
-    payload.currency
+    providerDecision.reasonCode
   );
 }
 
