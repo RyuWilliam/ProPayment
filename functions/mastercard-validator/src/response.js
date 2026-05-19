@@ -1,11 +1,5 @@
 "use strict";
 
-const { randomUUID } = require("crypto");
-
-function nowIso() {
-  return new Date().toISOString();
-}
-
 function buildJsonResponse(statusCode, payload) {
   return {
     statusCode,
@@ -16,23 +10,17 @@ function buildJsonResponse(statusCode, payload) {
   };
 }
 
-function buildRejectedResponse(provider, statusCode, reasonCode) {
+function buildRejectedResponse(statusCode, reason) {
   return buildJsonResponse(statusCode, {
-    transaction_id: randomUUID(),
-    provider,
-    decision: "rejected",
-    reason_code: reasonCode,
-    timestamp: nowIso()
+    status: "REJECTED",
+    reason
   });
 }
 
-function buildDecisionResponse(provider, statusCode, decision, reasonCode) {
+function buildDecisionResponse(statusCode, decision, reasonCode) {
   return buildJsonResponse(statusCode, {
-    transaction_id: randomUUID(),
-    provider,
-    decision,
-    reason_code: reasonCode,
-    timestamp: nowIso()
+    status: decision.toUpperCase(),
+    reason: reasonCode
   });
 }
 

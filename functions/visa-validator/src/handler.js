@@ -52,17 +52,16 @@ async function handlePayment(requestBody) {
   try {
     payload = JSON.parse(requestBody || "{}");
   } catch {
-    return buildRejectedResponse("visa", 400, "INVALID_JSON");
+    return buildRejectedResponse(400, "INVALID_JSON");
   }
 
   const payloadError = validatePayload(payload);
   if (payloadError) {
-    return buildRejectedResponse("visa", 400, payloadError);
+    return buildRejectedResponse(400, payloadError);
   }
 
   const providerDecision = validateAgainstProvider(payload);
   return buildDecisionResponse(
-    "visa",
     providerDecision.statusCode,
     providerDecision.decision,
     providerDecision.reasonCode
