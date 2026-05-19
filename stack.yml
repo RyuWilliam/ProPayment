@@ -1,0 +1,24 @@
+version: 1.0
+provider:
+  name: openfaas
+  gateway: ${OPENFAAS_URL:-http://127.0.0.1:8080}
+
+functions:
+  visa-validator:
+    lang: dockerfile
+    handler: ./functions/visa-validator
+    image: ${DOCKER_USER:-changeme}/visa-validator:${IMAGE_TAG:-0.1.0}
+    environment:
+      PAYMENT_PROVIDER: visa
+      USE_DB: "false"
+      LOG_LEVEL: info
+      max_inflight: "20"
+    labels:
+      com.openfaas.scale.min: "1"
+      com.openfaas.scale.max: "5"
+    limits:
+      memory: 128Mi
+      cpu: 100m
+    requests:
+      memory: 64Mi
+      cpu: 50m
