@@ -10,6 +10,9 @@ import co.edu.uptc.propayment.persistence.entities.Payment;
 import co.edu.uptc.propayment.persistence.enums.CardType;
 import co.edu.uptc.propayment.persistence.enums.PaymentStatus;
 import co.edu.uptc.propayment.persistence.repository.PaymentJpaRepository;
+import co.edu.uptc.propayment.web.ExternalBankClient;
+import co.edu.uptc.propayment.web.NuBankClient;
+import co.edu.uptc.propayment.web.dto.BankResponse;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -21,12 +24,15 @@ import org.slf4j.LoggerFactory;
 public class PaymentService {
     private static final Logger log = LoggerFactory.getLogger(PaymentService.class);
 
-
+    private final NuBankClient nuBankClient;
+    private final ExternalBankClient externalBankClient;
     private final PaymentJpaRepository paymentRepository;
     private final CompanyService companyService;
 
 
-    public PaymentService(PaymentJpaRepository paymentRepository, CompanyService companyService) {
+    public PaymentService(NuBankClient nuBankClient, ExternalBankClient externalBankClient, PaymentJpaRepository paymentRepository, CompanyService companyService) {
+        this.nuBankClient = nuBankClient;
+        this.externalBankClient = externalBankClient;
         this.paymentRepository = paymentRepository;
         this.companyService = companyService;
     }
@@ -35,7 +41,7 @@ public class PaymentService {
         return paymentRepository.save(payment);
     }
 
-    public Payment processPayment(String apiKey, Transaction transaction) {
+    public PaymentResponse processPayment(String apiKey, Transaction transaction) {
 
         log.info("=== Inicio de solicitud de pago ===");
 
@@ -74,31 +80,59 @@ public class PaymentService {
         log.info("Pago ID: {} — resultado final: {}", updated.getPaymentId(), updated.getStatus());
         log.info("=== Fin de solicitud de pago ===");
 
-        return updated;
+        return response;
     }
 
     public PaymentResponse sendToBank(Card card) {
-        if(card.getCardType() == CardType.VISA){
+        if (card.getCardType() == CardType.VISA) {
             return sendToVISABank(card.getCardNumber(), card.getCardHolderName());
         } else if (card.getCardType() == CardType.MASTERCARD) {
             return sendToMasterCardBank(card.getCardNumber(), card.getCardHolderName());
+        } else if (card.getCardType() == CardType.NU) {
+            return sendToNuBank(card.getCardNumber(), card.getCsv());
         } else {
-            return new PaymentResponse(PaymentStatus.REJECTED, "Pago rechazado: tipo de tarjeta no soportada");
+            return new PaymentResponse(PaymentStatus.REJECTED, "Tipo de tarjeta no soportada");
+        }
+    }
+
+    private PaymentResponse sendToMasterCardBank(String cardNumber, String cardHolderName) {
+        try {
+            BankResponse r = externalBankClient.callMastercard(cardNumber, cardHolderName);
+            if (r == null) return new PaymentResponse(PaymentStatus.FAILED, "Sin respuesta de MasterCard");
+            boolean approved = "APPROVED".equalsIgnoreCase(r.getStatus());
+            return new PaymentResponse(
+                    approved ? PaymentStatus.APPROVED : PaymentStatus.REJECTED,
+                    r.getMessage());
+        } catch (Exception e) {
+            log.error("Serverless MasterCard no disponible: {}", e.getMessage());
+            return new PaymentResponse(PaymentStatus.FAILED, "Servicio MasterCard no disponible");
+        }
+    }
+    private PaymentResponse sendToNuBank(String cardNumber, String csv) {
+        try {
+
+            boolean approved = nuBankClient.validate(cardNumber, csv);
+            String message = approved ? "Pago aprobado por Nu" : "Pago rechazado por Nu";
+            return new PaymentResponse(approved ? PaymentStatus.APPROVED : PaymentStatus.REJECTED, message);
+        }
+        catch (Exception e) {
+            log.error("Serverless NuBank no disponible: {}", e.getMessage());
+            return new PaymentResponse(PaymentStatus.FAILED, "Servicio NuBank no disponible");
         }
     }
 
     private PaymentResponse sendToVISABank(String cardNumber, String cardHolderName) {
-        // Simulación de respuesta del banco VISA
-        boolean approved = cardNumber.endsWith("0") || cardNumber.endsWith("5");
-        String message = approved ? "Pago aprobado por VISA" : "Pago rechazado por VISA";
-        return new PaymentResponse(approved ? PaymentStatus.APPROVED : PaymentStatus.REJECTED, message);
-    }
-
-    private PaymentResponse sendToMasterCardBank(String cardNumber, String cardHolderName) {
-        // Simulación de respuesta del banco MasterCard
-        boolean approved = cardNumber.endsWith("1") || cardNumber.endsWith("6");
-        String message = approved ? "Pago aprobado por MasterCard" : "Pago rechazado por MasterCard";
-        return new PaymentResponse(approved ? PaymentStatus.APPROVED : PaymentStatus.REJECTED, message);
+        try {
+            BankResponse r = externalBankClient.callVisa(cardNumber, cardHolderName);
+            if (r == null) return new PaymentResponse(PaymentStatus.FAILED, "Sin respuesta de VISA");
+            boolean approved = "APPROVED".equalsIgnoreCase(r.getStatus());
+            return new PaymentResponse(
+                    approved ? PaymentStatus.APPROVED : PaymentStatus.REJECTED,
+                    r.getMessage());
+        } catch (Exception e) {
+            log.error("Serverless VISA no disponible: {}", e.getMessage());
+            return new PaymentResponse(PaymentStatus.FAILED, "Servicio VISA no disponible");
+        }
     }
 
     private Payment initialBuild(Transaction transaction){
@@ -164,6 +198,12 @@ public class PaymentService {
         if (card.getCardType() == null) {
             log.error("cardType nulo");
             throw new InvalidCardException("cardType nulo — debe ser VISA o MASTERCARD");
+        }
+        if (card.getCardType() == CardType.NU) {
+            if (card.getCsv() == null || card.getCsv().isBlank()) {
+                log.error("csv nulo para tarjeta Nu");
+                throw new InvalidCardException("csv requerido para tarjetas Nu");
+            }
         }
     }
 

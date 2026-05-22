@@ -1,0 +1,792 @@
+2026-05-19 14:43:49 [INFO] [restartedMain] c.e.u.p.PropaymentApplication - Starting PropaymentApplication using Java 24.0.2 with PID 16344 (E:\William\event\propayment\build\classes\java\main started by ruyk1 in E:\William\event\propayment)
+2026-05-19 14:43:49 [INFO] [restartedMain] c.e.u.p.PropaymentApplication - The following 1 profile is active: "dev"
+2026-05-19 14:43:50 [INFO] [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-05-19 14:43:50 [INFO] [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-05-19 14:43:50 [INFO] [restartedMain] o.s.b.d.c.l.DockerComposeLifecycleManager - Using Docker Compose file E:\William\event\propayment\compose.yaml
+2026-05-19 14:43:52 [INFO] [OutputReader-stderr] o.s.b.docker.compose.core.DockerCli -  Container payment_service_db  Starting
+2026-05-19 14:43:54 [INFO] [OutputReader-stderr] o.s.b.docker.compose.core.DockerCli -  Container payment_service_db  Started
+2026-05-19 14:43:54 [INFO] [OutputReader-stderr] o.s.b.docker.compose.core.DockerCli -  Container payment_service_db  Waiting
+2026-05-19 14:43:55 [INFO] [OutputReader-stderr] o.s.b.docker.compose.core.DockerCli -  Container payment_service_db  Healthy
+2026-05-19 14:43:57 [INFO] [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-19 14:43:57 [INFO] [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 120 ms. Found 2 JPA repository interfaces.
+2026-05-19 14:43:58 [INFO] [restartedMain] o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 7021 (http)
+2026-05-19 14:43:58 [INFO] [restartedMain] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7021"]
+2026-05-19 14:43:58 [INFO] [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-19 14:43:58 [INFO] [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-05-19 14:43:58 [INFO] [restartedMain] o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 2597 ms
+2026-05-19 14:43:59 [INFO] [restartedMain] org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-19 14:43:59 [INFO] [restartedMain] org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-05-19 14:44:00 [INFO] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-19 14:44:00 [INFO] [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-19 14:44:01 [INFO] [restartedMain] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@59382f21
+2026-05-19 14:44:01 [INFO] [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-19 14:44:01 [INFO] [restartedMain] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://127.0.0.1:5251/payment_service_db?ApplicationName=propayment]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 16.13
+	Default catalog/schema: payment_service_db/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-19 14:44:03 [INFO] [restartedMain] org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-19 14:44:04 [INFO] [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-19 14:44:04 [INFO] [restartedMain] o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-19 14:44:05 [WARN] [restartedMain] o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-19 14:44:05 [INFO] [restartedMain] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7021"]
+2026-05-19 14:44:05 [INFO] [restartedMain] o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 7021 (http) with context path '/payment/api'
+2026-05-19 14:44:05 [INFO] [restartedMain] c.e.u.p.PropaymentApplication - Started PropaymentApplication in 17.696 seconds (process running for 19.175)
+2026-05-19 14:44:16 [INFO] [http-nio-7021-exec-2] o.a.c.c.C.[.[.[/payment/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-19 14:44:16 [INFO] [http-nio-7021-exec-2] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-19 14:44:16 [INFO] [http-nio-7021-exec-2] o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-05-19 14:44:21 [INFO] [http-nio-7021-exec-3] c.e.u.p.d.service.PaymentService - === Inicio de solicitud de pago ===
+2026-05-19 14:44:21 [INFO] [http-nio-7021-exec-3] c.e.u.p.d.service.PaymentService - Buscando empresa para API key...
+2026-05-19 14:44:22 [INFO] [http-nio-7021-exec-3] c.e.u.p.d.service.PaymentService - Empresa identificada: Compañia pingoloña
+2026-05-19 14:44:22 [INFO] [http-nio-7021-exec-3] c.e.u.p.d.service.PaymentService - Pago registrado con ID: 1 — estado inicial: PENDING
+2026-05-19 14:44:22 [INFO] [http-nio-7021-exec-3] c.e.u.p.d.service.PaymentService - Envío de pago a autorización externa
+2026-05-19 14:44:22 [INFO] [http-nio-7021-exec-3] c.e.u.p.d.service.PaymentService - Pago ID: 1 — resultado final: REJECTED
+2026-05-19 14:44:22 [INFO] [http-nio-7021-exec-3] c.e.u.p.d.service.PaymentService - === Fin de solicitud de pago ===
+2026-05-19 14:44:36 [INFO] [http-nio-7021-exec-4] c.e.u.p.d.service.PaymentService - === Inicio de solicitud de pago ===
+2026-05-19 14:44:36 [INFO] [http-nio-7021-exec-4] c.e.u.p.d.service.PaymentService - Buscando empresa para API key...
+2026-05-19 14:44:36 [INFO] [http-nio-7021-exec-4] c.e.u.p.d.service.PaymentService - Empresa identificada: Compañia pingoloña
+2026-05-19 14:44:36 [INFO] [http-nio-7021-exec-4] c.e.u.p.d.service.PaymentService - Pago registrado con ID: 2 — estado inicial: PENDING
+2026-05-19 14:44:36 [INFO] [http-nio-7021-exec-4] c.e.u.p.d.service.PaymentService - Envío de pago a autorización externa
+2026-05-19 14:44:36 [INFO] [http-nio-7021-exec-4] c.e.u.p.d.service.PaymentService - Pago ID: 2 — resultado final: APPROVED
+2026-05-19 14:44:36 [INFO] [http-nio-7021-exec-4] c.e.u.p.d.service.PaymentService - === Fin de solicitud de pago ===
+2026-05-19 15:47:54 [INFO] [restartedMain] c.e.u.p.PropaymentApplication - Starting PropaymentApplication using Java 24.0.2 with PID 3404 (E:\William\event\propayment\build\classes\java\main started by ruyk1 in E:\William\event\propayment)
+2026-05-19 15:47:54 [INFO] [restartedMain] c.e.u.p.PropaymentApplication - The following 1 profile is active: "dev"
+2026-05-19 15:47:55 [INFO] [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-05-19 15:47:55 [INFO] [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-05-19 15:47:55 [INFO] [restartedMain] o.s.b.d.c.l.DockerComposeLifecycleManager - Using Docker Compose file E:\William\event\propayment\compose.yaml
+2026-05-19 15:47:56 [INFO] [restartedMain] o.s.b.d.c.l.DockerComposeLifecycleManager - There are already Docker Compose services running, skipping startup
+2026-05-19 15:47:57 [INFO] [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-19 15:47:57 [INFO] [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 77 ms. Found 2 JPA repository interfaces.
+2026-05-19 15:47:58 [INFO] [restartedMain] o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 7021 (http)
+2026-05-19 15:47:58 [INFO] [restartedMain] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7021"]
+2026-05-19 15:47:58 [INFO] [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-19 15:47:58 [INFO] [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-05-19 15:47:58 [INFO] [restartedMain] o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 2344 ms
+2026-05-19 15:47:59 [INFO] [restartedMain] org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-19 15:47:59 [INFO] [restartedMain] org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-05-19 15:48:00 [INFO] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-19 15:48:00 [INFO] [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-19 15:48:00 [INFO] [restartedMain] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3bdae8f4
+2026-05-19 15:48:00 [INFO] [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-19 15:48:01 [INFO] [restartedMain] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://127.0.0.1:5251/payment_service_db?ApplicationName=propayment]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 16.13
+	Default catalog/schema: payment_service_db/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-19 15:48:02 [INFO] [restartedMain] org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-19 15:48:04 [INFO] [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-19 15:48:04 [INFO] [restartedMain] o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-19 15:48:05 [WARN] [restartedMain] o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-19 15:48:05 [INFO] [restartedMain] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7021"]
+2026-05-19 15:48:05 [INFO] [restartedMain] o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 7021 (http) with context path '/payment/api'
+2026-05-19 15:48:05 [INFO] [restartedMain] c.e.u.p.PropaymentApplication - Started PropaymentApplication in 11.864 seconds (process running for 12.86)
+2026-05-19 15:48:12 [INFO] [http-nio-7021-exec-2] o.a.c.c.C.[.[.[/payment/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-19 15:48:12 [INFO] [http-nio-7021-exec-2] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-19 15:48:12 [INFO] [http-nio-7021-exec-2] o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-05-19 15:48:34 [INFO] [http-nio-7021-exec-3] c.e.u.p.d.service.PaymentService - === Inicio de solicitud de pago ===
+2026-05-19 15:48:34 [INFO] [http-nio-7021-exec-3] c.e.u.p.d.service.PaymentService - Buscando empresa para API key...
+2026-05-19 15:48:35 [INFO] [http-nio-7021-exec-3] c.e.u.p.d.service.PaymentService - Empresa identificada: Compañia pingoloña
+2026-05-19 15:48:35 [INFO] [http-nio-7021-exec-3] c.e.u.p.d.service.PaymentService - Pago registrado con ID: 1 — estado inicial: PENDING
+2026-05-19 15:48:35 [INFO] [http-nio-7021-exec-3] c.e.u.p.d.service.PaymentService - Envío de pago a autorización externa
+2026-05-19 15:48:35 [INFO] [http-nio-7021-exec-3] c.e.u.p.d.service.PaymentService - Pago ID: 1 — resultado final: APPROVED
+2026-05-19 15:48:35 [INFO] [http-nio-7021-exec-3] c.e.u.p.d.service.PaymentService - === Fin de solicitud de pago ===
+2026-05-19 15:49:54 [INFO] [http-nio-7021-exec-5] c.e.u.p.d.service.PaymentService - === Inicio de solicitud de pago ===
+2026-05-19 15:49:54 [INFO] [http-nio-7021-exec-5] c.e.u.p.d.service.PaymentService - Buscando empresa para API key...
+2026-05-19 15:49:54 [INFO] [http-nio-7021-exec-5] c.e.u.p.d.service.PaymentService - Empresa identificada: Compañia pingoloña
+2026-05-19 15:49:54 [INFO] [http-nio-7021-exec-5] c.e.u.p.d.service.PaymentService - Pago registrado con ID: 2 — estado inicial: PENDING
+2026-05-19 15:49:54 [INFO] [http-nio-7021-exec-5] c.e.u.p.d.service.PaymentService - Envío de pago a autorización externa
+2026-05-19 15:49:54 [INFO] [http-nio-7021-exec-5] c.e.u.p.d.service.PaymentService - Pago ID: 2 — resultado final: REJECTED
+2026-05-19 15:49:54 [INFO] [http-nio-7021-exec-5] c.e.u.p.d.service.PaymentService - === Fin de solicitud de pago ===
+2026-05-19 15:50:04 [INFO] [http-nio-7021-exec-7] c.e.u.p.d.service.PaymentService - === Inicio de solicitud de pago ===
+2026-05-19 15:50:04 [INFO] [http-nio-7021-exec-7] c.e.u.p.d.service.PaymentService - Buscando empresa para API key...
+2026-05-19 15:50:04 [INFO] [http-nio-7021-exec-7] c.e.u.p.d.service.PaymentService - Empresa identificada: Compañia pingoloña
+2026-05-19 15:50:04 [INFO] [http-nio-7021-exec-7] c.e.u.p.d.service.PaymentService - Pago registrado con ID: 3 — estado inicial: PENDING
+2026-05-19 15:50:04 [INFO] [http-nio-7021-exec-7] c.e.u.p.d.service.PaymentService - Envío de pago a autorización externa
+2026-05-19 15:50:04 [INFO] [http-nio-7021-exec-7] c.e.u.p.d.service.PaymentService - Pago ID: 3 — resultado final: APPROVED
+2026-05-19 15:50:04 [INFO] [http-nio-7021-exec-7] c.e.u.p.d.service.PaymentService - === Fin de solicitud de pago ===
+2026-05-19 16:35:07 [INFO] [http-nio-7021-exec-9] c.e.u.p.d.service.PaymentService - === Inicio de solicitud de pago ===
+2026-05-19 16:35:07 [INFO] [http-nio-7021-exec-9] c.e.u.p.d.service.PaymentService - Buscando empresa para API key...
+2026-05-19 16:35:07 [INFO] [http-nio-7021-exec-9] c.e.u.p.d.service.PaymentService - Empresa identificada: Compañia pingoloña
+2026-05-19 16:35:07 [INFO] [http-nio-7021-exec-9] c.e.u.p.d.service.PaymentService - Pago registrado con ID: 4 — estado inicial: PENDING
+2026-05-19 16:35:07 [INFO] [http-nio-7021-exec-9] c.e.u.p.d.service.PaymentService - Envío de pago a autorización externa
+2026-05-19 16:35:07 [INFO] [http-nio-7021-exec-9] c.e.u.p.d.service.PaymentService - Pago ID: 4 — resultado final: APPROVED
+2026-05-19 16:35:07 [INFO] [http-nio-7021-exec-9] c.e.u.p.d.service.PaymentService - === Fin de solicitud de pago ===
+2026-05-19 16:35:25 [INFO] [http-nio-7021-exec-10] c.e.u.p.d.service.PaymentService - === Inicio de solicitud de pago ===
+2026-05-19 16:35:25 [INFO] [http-nio-7021-exec-10] c.e.u.p.d.service.PaymentService - Buscando empresa para API key...
+2026-05-19 16:35:25 [INFO] [http-nio-7021-exec-10] c.e.u.p.d.service.PaymentService - Empresa identificada: Compañia pingoloña
+2026-05-19 16:35:25 [INFO] [http-nio-7021-exec-10] c.e.u.p.d.service.PaymentService - Pago registrado con ID: 5 — estado inicial: PENDING
+2026-05-19 16:35:25 [INFO] [http-nio-7021-exec-10] c.e.u.p.d.service.PaymentService - Envío de pago a autorización externa
+2026-05-19 16:35:25 [INFO] [http-nio-7021-exec-10] c.e.u.p.d.service.PaymentService - Pago ID: 5 — resultado final: APPROVED
+2026-05-19 16:35:25 [INFO] [http-nio-7021-exec-10] c.e.u.p.d.service.PaymentService - === Fin de solicitud de pago ===
+2026-05-19 16:35:33 [INFO] [http-nio-7021-exec-1] c.e.u.p.d.service.PaymentService - === Inicio de solicitud de pago ===
+2026-05-19 16:35:33 [INFO] [http-nio-7021-exec-1] c.e.u.p.d.service.PaymentService - Buscando empresa para API key...
+2026-05-19 16:35:33 [INFO] [http-nio-7021-exec-1] c.e.u.p.d.service.PaymentService - Empresa identificada: Compañia pingoloña
+2026-05-19 16:35:33 [INFO] [http-nio-7021-exec-1] c.e.u.p.d.service.PaymentService - Pago registrado con ID: 6 — estado inicial: PENDING
+2026-05-19 16:35:33 [INFO] [http-nio-7021-exec-1] c.e.u.p.d.service.PaymentService - Envío de pago a autorización externa
+2026-05-19 16:35:33 [INFO] [http-nio-7021-exec-1] c.e.u.p.d.service.PaymentService - Pago ID: 6 — resultado final: REJECTED
+2026-05-19 16:35:33 [INFO] [http-nio-7021-exec-1] c.e.u.p.d.service.PaymentService - === Fin de solicitud de pago ===
+2026-05-19 16:36:40 [INFO] [http-nio-7021-exec-3] c.e.u.p.d.service.PaymentService - === Inicio de solicitud de pago ===
+2026-05-19 16:36:40 [INFO] [http-nio-7021-exec-3] c.e.u.p.d.service.PaymentService - Buscando empresa para API key...
+2026-05-19 16:36:40 [INFO] [http-nio-7021-exec-3] c.e.u.p.d.service.PaymentService - Empresa identificada: Compañia pingoloña
+2026-05-19 16:36:40 [INFO] [http-nio-7021-exec-3] c.e.u.p.d.service.PaymentService - Pago registrado con ID: 7 — estado inicial: PENDING
+2026-05-19 16:36:40 [INFO] [http-nio-7021-exec-3] c.e.u.p.d.service.PaymentService - Envío de pago a autorización externa
+2026-05-19 16:36:40 [INFO] [http-nio-7021-exec-3] c.e.u.p.d.service.PaymentService - Pago ID: 7 — resultado final: APPROVED
+2026-05-19 16:36:40 [INFO] [http-nio-7021-exec-3] c.e.u.p.d.service.PaymentService - === Fin de solicitud de pago ===
+2026-05-19 16:38:13 [INFO] [http-nio-7021-exec-6] c.e.u.p.d.service.PaymentService - === Inicio de solicitud de pago ===
+2026-05-19 16:38:13 [ERROR] [http-nio-7021-exec-6] c.e.u.p.d.service.PaymentService - cardNumber muy corto: 15
+2026-05-19 16:38:13 [ERROR] [http-nio-7021-exec-6] c.e.u.p.w.c.GlobalExceptionHandler - Tarjeta inválida: Invalid CardcardNumber debe tener al menos 16 dígitos
+2026-05-19 16:38:13 [WARN] [http-nio-7021-exec-6] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [co.edu.uptc.propayment.exceptions.InvalidCardException: Invalid CardcardNumber debe tener al menos 16 dígitos]
+2026-05-19 16:39:00 [INFO] [http-nio-7021-exec-5] c.e.u.p.d.service.PaymentService - === Inicio de solicitud de pago ===
+2026-05-19 16:39:00 [INFO] [http-nio-7021-exec-5] c.e.u.p.d.service.PaymentService - Buscando empresa para API key...
+2026-05-19 16:39:00 [INFO] [http-nio-7021-exec-5] c.e.u.p.d.service.PaymentService - Empresa identificada: Compañia pingoloña
+2026-05-19 16:39:00 [INFO] [http-nio-7021-exec-5] c.e.u.p.d.service.PaymentService - Pago registrado con ID: 8 — estado inicial: PENDING
+2026-05-19 16:39:00 [INFO] [http-nio-7021-exec-5] c.e.u.p.d.service.PaymentService - Envío de pago a autorización externa
+2026-05-19 16:39:00 [INFO] [http-nio-7021-exec-5] c.e.u.p.d.service.PaymentService - Pago ID: 8 — resultado final: REJECTED
+2026-05-19 16:39:00 [INFO] [http-nio-7021-exec-5] c.e.u.p.d.service.PaymentService - === Fin de solicitud de pago ===
+2026-05-19 16:40:24 [INFO] [http-nio-7021-exec-8] c.e.u.p.d.service.PaymentService - === Inicio de solicitud de pago ===
+2026-05-19 16:40:24 [ERROR] [http-nio-7021-exec-8] c.e.u.p.d.service.PaymentService - cardNumber muy corto: 15
+2026-05-19 16:40:24 [ERROR] [http-nio-7021-exec-8] c.e.u.p.w.c.GlobalExceptionHandler - Tarjeta inválida: Invalid CardcardNumber debe tener al menos 16 dígitos
+2026-05-19 16:40:24 [WARN] [http-nio-7021-exec-8] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [co.edu.uptc.propayment.exceptions.InvalidCardException: Invalid CardcardNumber debe tener al menos 16 dígitos]
+2026-05-19 16:47:08 [INFO] [http-nio-7021-exec-9] c.e.u.p.d.service.PaymentService - === Inicio de solicitud de pago ===
+2026-05-19 16:47:08 [INFO] [http-nio-7021-exec-9] c.e.u.p.d.service.PaymentService - Buscando empresa para API key...
+2026-05-19 16:47:08 [INFO] [http-nio-7021-exec-9] c.e.u.p.d.service.PaymentService - Empresa identificada: Compañia pingoloña
+2026-05-19 16:47:08 [INFO] [http-nio-7021-exec-9] c.e.u.p.d.service.PaymentService - Pago registrado con ID: 9 — estado inicial: PENDING
+2026-05-19 16:47:08 [INFO] [http-nio-7021-exec-9] c.e.u.p.d.service.PaymentService - Envío de pago a autorización externa
+2026-05-19 16:47:08 [INFO] [http-nio-7021-exec-9] c.e.u.p.d.service.PaymentService - Pago ID: 9 — resultado final: APPROVED
+2026-05-19 16:47:08 [INFO] [http-nio-7021-exec-9] c.e.u.p.d.service.PaymentService - === Fin de solicitud de pago ===
+2026-05-19 16:47:15 [INFO] [http-nio-7021-exec-10] c.e.u.p.d.service.PaymentService - === Inicio de solicitud de pago ===
+2026-05-19 16:47:15 [INFO] [http-nio-7021-exec-10] c.e.u.p.d.service.PaymentService - Buscando empresa para API key...
+2026-05-19 16:47:15 [INFO] [http-nio-7021-exec-10] c.e.u.p.d.service.PaymentService - Empresa identificada: Compañia pingoloña
+2026-05-19 16:47:15 [INFO] [http-nio-7021-exec-10] c.e.u.p.d.service.PaymentService - Pago registrado con ID: 10 — estado inicial: PENDING
+2026-05-19 16:47:15 [INFO] [http-nio-7021-exec-10] c.e.u.p.d.service.PaymentService - Envío de pago a autorización externa
+2026-05-19 16:47:15 [INFO] [http-nio-7021-exec-10] c.e.u.p.d.service.PaymentService - Pago ID: 10 — resultado final: APPROVED
+2026-05-19 16:47:15 [INFO] [http-nio-7021-exec-10] c.e.u.p.d.service.PaymentService - === Fin de solicitud de pago ===
+2026-05-19 16:48:53 [INFO] [http-nio-7021-exec-2] c.e.u.p.d.service.PaymentService - === Inicio de solicitud de pago ===
+2026-05-19 16:48:53 [INFO] [http-nio-7021-exec-2] c.e.u.p.d.service.PaymentService - Buscando empresa para API key...
+2026-05-19 16:48:53 [INFO] [http-nio-7021-exec-2] c.e.u.p.d.service.PaymentService - Empresa identificada: Compañia pingoloña
+2026-05-19 16:48:53 [INFO] [http-nio-7021-exec-2] c.e.u.p.d.service.PaymentService - Pago registrado con ID: 11 — estado inicial: PENDING
+2026-05-19 16:48:53 [INFO] [http-nio-7021-exec-2] c.e.u.p.d.service.PaymentService - Envío de pago a autorización externa
+2026-05-19 16:48:53 [INFO] [http-nio-7021-exec-2] c.e.u.p.d.service.PaymentService - Pago ID: 11 — resultado final: REJECTED
+2026-05-19 16:48:53 [INFO] [http-nio-7021-exec-2] c.e.u.p.d.service.PaymentService - === Fin de solicitud de pago ===
+2026-05-19 16:54:46 [INFO] [http-nio-7021-exec-4] c.e.u.p.d.service.PaymentService - === Inicio de solicitud de pago ===
+2026-05-19 16:54:46 [ERROR] [http-nio-7021-exec-4] c.e.u.p.d.service.PaymentService - cardNumber muy corto: 15
+2026-05-19 16:54:46 [ERROR] [http-nio-7021-exec-4] c.e.u.p.w.c.GlobalExceptionHandler - Tarjeta inválida: Invalid CardcardNumber debe tener al menos 16 dígitos
+2026-05-19 16:54:46 [WARN] [http-nio-7021-exec-4] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [co.edu.uptc.propayment.exceptions.InvalidCardException: Invalid CardcardNumber debe tener al menos 16 dígitos]
+2026-05-19 16:55:07 [INFO] [http-nio-7021-exec-6] c.e.u.p.d.service.PaymentService - === Inicio de solicitud de pago ===
+2026-05-19 16:55:07 [INFO] [http-nio-7021-exec-6] c.e.u.p.d.service.PaymentService - Buscando empresa para API key...
+2026-05-19 16:55:07 [INFO] [http-nio-7021-exec-6] c.e.u.p.d.service.PaymentService - Empresa identificada: Compañia pingoloña
+2026-05-19 16:55:07 [INFO] [http-nio-7021-exec-6] c.e.u.p.d.service.PaymentService - Pago registrado con ID: 12 — estado inicial: PENDING
+2026-05-19 16:55:07 [INFO] [http-nio-7021-exec-6] c.e.u.p.d.service.PaymentService - Envío de pago a autorización externa
+2026-05-19 16:55:08 [INFO] [http-nio-7021-exec-6] c.e.u.p.d.service.PaymentService - Pago ID: 12 — resultado final: REJECTED
+2026-05-19 16:55:08 [INFO] [http-nio-7021-exec-6] c.e.u.p.d.service.PaymentService - === Fin de solicitud de pago ===
+2026-05-19 17:03:32 [INFO] [http-nio-7021-exec-7] c.e.u.p.d.service.PaymentService - === Inicio de solicitud de pago ===
+2026-05-19 17:03:32 [INFO] [http-nio-7021-exec-7] c.e.u.p.d.service.PaymentService - Buscando empresa para API key...
+2026-05-19 17:03:32 [INFO] [http-nio-7021-exec-7] c.e.u.p.d.service.PaymentService - Empresa identificada: Compañia pingoloña
+2026-05-19 17:03:32 [INFO] [http-nio-7021-exec-7] c.e.u.p.d.service.PaymentService - Pago registrado con ID: 13 — estado inicial: PENDING
+2026-05-19 17:03:32 [INFO] [http-nio-7021-exec-7] c.e.u.p.d.service.PaymentService - Envío de pago a autorización externa
+2026-05-19 17:03:32 [INFO] [http-nio-7021-exec-7] c.e.u.p.d.service.PaymentService - Pago ID: 13 — resultado final: APPROVED
+2026-05-19 17:03:32 [INFO] [http-nio-7021-exec-7] c.e.u.p.d.service.PaymentService - === Fin de solicitud de pago ===
+2026-05-19 17:04:18 [INFO] [http-nio-7021-exec-8] c.e.u.p.d.service.PaymentService - === Inicio de solicitud de pago ===
+2026-05-19 17:04:18 [INFO] [http-nio-7021-exec-8] c.e.u.p.d.service.PaymentService - Buscando empresa para API key...
+2026-05-19 17:04:18 [INFO] [http-nio-7021-exec-8] c.e.u.p.d.service.PaymentService - Empresa identificada: Compañia pingoloña
+2026-05-19 17:04:18 [INFO] [http-nio-7021-exec-8] c.e.u.p.d.service.PaymentService - Pago registrado con ID: 14 — estado inicial: PENDING
+2026-05-19 17:04:18 [INFO] [http-nio-7021-exec-8] c.e.u.p.d.service.PaymentService - Envío de pago a autorización externa
+2026-05-19 17:04:18 [INFO] [http-nio-7021-exec-8] c.e.u.p.d.service.PaymentService - Pago ID: 14 — resultado final: REJECTED
+2026-05-19 17:04:18 [INFO] [http-nio-7021-exec-8] c.e.u.p.d.service.PaymentService - === Fin de solicitud de pago ===
+2026-05-19 17:04:26 [INFO] [http-nio-7021-exec-9] c.e.u.p.d.service.PaymentService - === Inicio de solicitud de pago ===
+2026-05-19 17:04:26 [INFO] [http-nio-7021-exec-9] c.e.u.p.d.service.PaymentService - Buscando empresa para API key...
+2026-05-19 17:04:26 [INFO] [http-nio-7021-exec-9] c.e.u.p.d.service.PaymentService - Empresa identificada: Compañia pingoloña
+2026-05-19 17:04:26 [INFO] [http-nio-7021-exec-9] c.e.u.p.d.service.PaymentService - Pago registrado con ID: 15 — estado inicial: PENDING
+2026-05-19 17:04:26 [INFO] [http-nio-7021-exec-9] c.e.u.p.d.service.PaymentService - Envío de pago a autorización externa
+2026-05-19 17:04:26 [INFO] [http-nio-7021-exec-9] c.e.u.p.d.service.PaymentService - Pago ID: 15 — resultado final: APPROVED
+2026-05-19 17:04:26 [INFO] [http-nio-7021-exec-9] c.e.u.p.d.service.PaymentService - === Fin de solicitud de pago ===
+2026-05-19 17:10:36 [INFO] [restartedMain] c.e.u.p.PropaymentApplication - Starting PropaymentApplication using Java 24.0.2 with PID 21776 (E:\William\event\propayment\build\classes\java\main started by ruyk1 in E:\William\event\propayment)
+2026-05-19 17:10:36 [INFO] [restartedMain] c.e.u.p.PropaymentApplication - The following 1 profile is active: "dev"
+2026-05-19 17:10:36 [INFO] [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-05-19 17:10:36 [INFO] [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-05-19 17:10:36 [INFO] [restartedMain] o.s.b.d.c.l.DockerComposeLifecycleManager - Using Docker Compose file E:\William\event\propayment\compose.yaml
+2026-05-19 17:10:37 [INFO] [restartedMain] o.s.b.d.c.l.DockerComposeLifecycleManager - There are already Docker Compose services running, skipping startup
+2026-05-19 17:10:38 [INFO] [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-19 17:10:38 [INFO] [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 61 ms. Found 2 JPA repository interfaces.
+2026-05-19 17:10:39 [INFO] [restartedMain] o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 7021 (http)
+2026-05-19 17:10:39 [INFO] [restartedMain] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7021"]
+2026-05-19 17:10:39 [INFO] [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-19 17:10:39 [INFO] [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-05-19 17:10:39 [INFO] [restartedMain] o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 1693 ms
+2026-05-19 17:10:39 [INFO] [restartedMain] org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-19 17:10:39 [INFO] [restartedMain] org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-05-19 17:10:40 [INFO] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-19 17:10:40 [INFO] [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-19 17:10:40 [INFO] [restartedMain] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@260df2de
+2026-05-19 17:10:40 [INFO] [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-19 17:10:40 [INFO] [restartedMain] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://127.0.0.1:5251/payment_service_db?ApplicationName=propayment]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 16.13
+	Default catalog/schema: payment_service_db/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-19 17:10:41 [INFO] [restartedMain] org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-19 17:10:43 [INFO] [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-19 17:10:43 [INFO] [restartedMain] o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-19 17:10:43 [WARN] [restartedMain] o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-19 17:10:43 [INFO] [restartedMain] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7021"]
+2026-05-19 17:10:43 [INFO] [restartedMain] o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 7021 (http) with context path '/payment/api'
+2026-05-19 17:10:43 [INFO] [restartedMain] c.e.u.p.PropaymentApplication - Started PropaymentApplication in 8.924 seconds (process running for 9.631)
+2026-05-19 17:17:13 [INFO] [http-nio-7021-exec-1] o.a.c.c.C.[.[.[/payment/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-19 17:17:13 [INFO] [http-nio-7021-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-19 17:17:13 [INFO] [http-nio-7021-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-05-19 17:17:13 [INFO] [http-nio-7021-exec-1] c.e.u.p.d.service.PaymentService - === Inicio de solicitud de pago ===
+2026-05-19 17:17:13 [INFO] [http-nio-7021-exec-1] c.e.u.p.d.service.PaymentService - Buscando empresa para API key...
+2026-05-19 17:17:14 [ERROR] [http-nio-7021-exec-1] c.e.u.p.d.service.PaymentService - Empresa no encontrada para API el key
+2026-05-19 17:17:14 [ERROR] [http-nio-7021-exec-1] o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [/payment/api] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: not-null property references a null or transient value for entity co.edu.uptc.propayment.persistence.entities.Payment.company] with root cause
+org.hibernate.PropertyValueException: not-null property references a null or transient value for entity co.edu.uptc.propayment.persistence.entities.Payment.company
+	at org.hibernate.engine.internal.Nullability.checkNullability(Nullability.java:120)
+	at org.hibernate.action.internal.AbstractEntityInsertAction.nullifyTransientReferencesIfNotAlready(AbstractEntityInsertAction.java:120)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:67)
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:667)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:291)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:270)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:322)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:371)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:285)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:215)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:133)
+	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:144)
+	at org.hibernate.event.internal.DefaultPersistEventListener.persist(DefaultPersistEventListener.java:90)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:74)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:50)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:138)
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:692)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:675)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:362)
+	at jdk.proxy4/jdk.proxy4.$Proxy128.persist(Unknown Source)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityHandlerInvocationHandler.invokeMethod(SharedEntityManagerCreator.java:240)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:386)
+	at jdk.proxy4/jdk.proxy4.$Proxy128.persist(Unknown Source)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:664)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:278)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:169)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:545)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:290)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:690)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:171)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:146)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:69)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:135)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:166)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:222)
+	at jdk.proxy4/jdk.proxy4.$Proxy135.save(Unknown Source)
+	at co.edu.uptc.propayment.domain.service.PaymentService.processPayment(PaymentService.java:60)
+	at co.edu.uptc.propayment.web.controller.PaymentController.processPayment(PaymentController.java:26)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:252)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:184)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:934)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:853)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:86)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1000)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:649)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1801)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2026-05-19 17:17:24 [INFO] [http-nio-7021-exec-2] c.e.u.p.d.service.PaymentService - === Inicio de solicitud de pago ===
+2026-05-19 17:17:24 [INFO] [http-nio-7021-exec-2] c.e.u.p.d.service.PaymentService - Buscando empresa para API key...
+2026-05-19 17:17:24 [ERROR] [http-nio-7021-exec-2] c.e.u.p.d.service.PaymentService - Empresa no encontrada para API el key
+2026-05-19 17:17:24 [ERROR] [http-nio-7021-exec-2] o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [/payment/api] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: not-null property references a null or transient value for entity co.edu.uptc.propayment.persistence.entities.Payment.company] with root cause
+org.hibernate.PropertyValueException: not-null property references a null or transient value for entity co.edu.uptc.propayment.persistence.entities.Payment.company
+	at org.hibernate.engine.internal.Nullability.checkNullability(Nullability.java:120)
+	at org.hibernate.action.internal.AbstractEntityInsertAction.nullifyTransientReferencesIfNotAlready(AbstractEntityInsertAction.java:120)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:67)
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:667)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:291)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:270)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:322)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:371)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:285)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:215)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:133)
+	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:144)
+	at org.hibernate.event.internal.DefaultPersistEventListener.persist(DefaultPersistEventListener.java:90)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:74)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:50)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:138)
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:692)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:675)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:362)
+	at jdk.proxy4/jdk.proxy4.$Proxy128.persist(Unknown Source)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityHandlerInvocationHandler.invokeMethod(SharedEntityManagerCreator.java:240)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:386)
+	at jdk.proxy4/jdk.proxy4.$Proxy128.persist(Unknown Source)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:664)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:278)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:169)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:545)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:290)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:690)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:171)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:146)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:69)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:135)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:166)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:222)
+	at jdk.proxy4/jdk.proxy4.$Proxy135.save(Unknown Source)
+	at co.edu.uptc.propayment.domain.service.PaymentService.processPayment(PaymentService.java:60)
+	at co.edu.uptc.propayment.web.controller.PaymentController.processPayment(PaymentController.java:26)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:252)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:184)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:934)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:853)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:86)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1000)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:649)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1801)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2026-05-19 17:18:48 [INFO] [http-nio-7021-exec-5] c.e.u.p.d.service.PaymentService - === Inicio de solicitud de pago ===
+2026-05-19 17:18:48 [INFO] [http-nio-7021-exec-5] c.e.u.p.d.service.PaymentService - Buscando empresa para API key...
+2026-05-19 17:18:48 [INFO] [http-nio-7021-exec-5] c.e.u.p.d.service.PaymentService - Empresa identificada: Compañia Event Tracker S.W
+2026-05-19 17:18:48 [INFO] [http-nio-7021-exec-5] c.e.u.p.d.service.PaymentService - Pago registrado con ID: 1 — estado inicial: PENDING
+2026-05-19 17:18:48 [INFO] [http-nio-7021-exec-5] c.e.u.p.d.service.PaymentService - Envío de pago a autorización externa
+2026-05-19 17:18:48 [INFO] [http-nio-7021-exec-5] c.e.u.p.d.service.PaymentService - Pago ID: 1 — resultado final: APPROVED
+2026-05-19 17:18:48 [INFO] [http-nio-7021-exec-5] c.e.u.p.d.service.PaymentService - === Fin de solicitud de pago ===
+2026-05-19 17:19:32 [INFO] [http-nio-7021-exec-6] c.e.u.p.d.service.PaymentService - === Inicio de solicitud de pago ===
+2026-05-19 17:19:32 [INFO] [http-nio-7021-exec-6] c.e.u.p.d.service.PaymentService - Buscando empresa para API key...
+2026-05-19 17:19:32 [INFO] [http-nio-7021-exec-6] c.e.u.p.d.service.PaymentService - Empresa identificada: Compañia Event Tracker S.W
+2026-05-19 17:19:32 [INFO] [http-nio-7021-exec-6] c.e.u.p.d.service.PaymentService - Pago registrado con ID: 2 — estado inicial: PENDING
+2026-05-19 17:19:32 [INFO] [http-nio-7021-exec-6] c.e.u.p.d.service.PaymentService - Envío de pago a autorización externa
+2026-05-19 17:19:32 [INFO] [http-nio-7021-exec-6] c.e.u.p.d.service.PaymentService - Pago ID: 2 — resultado final: REJECTED
+2026-05-19 17:19:32 [INFO] [http-nio-7021-exec-6] c.e.u.p.d.service.PaymentService - === Fin de solicitud de pago ===
+2026-05-19 17:19:39 [INFO] [http-nio-7021-exec-7] c.e.u.p.d.service.PaymentService - === Inicio de solicitud de pago ===
+2026-05-19 17:19:39 [INFO] [http-nio-7021-exec-7] c.e.u.p.d.service.PaymentService - Buscando empresa para API key...
+2026-05-19 17:19:39 [INFO] [http-nio-7021-exec-7] c.e.u.p.d.service.PaymentService - Empresa identificada: Compañia Event Tracker S.W
+2026-05-19 17:19:39 [INFO] [http-nio-7021-exec-7] c.e.u.p.d.service.PaymentService - Pago registrado con ID: 3 — estado inicial: PENDING
+2026-05-19 17:19:39 [INFO] [http-nio-7021-exec-7] c.e.u.p.d.service.PaymentService - Envío de pago a autorización externa
+2026-05-19 17:19:39 [INFO] [http-nio-7021-exec-7] c.e.u.p.d.service.PaymentService - Pago ID: 3 — resultado final: APPROVED
+2026-05-19 17:19:39 [INFO] [http-nio-7021-exec-7] c.e.u.p.d.service.PaymentService - === Fin de solicitud de pago ===
+2026-05-19 17:28:00 [INFO] [http-nio-7021-exec-10] c.e.u.p.d.service.PaymentService - === Inicio de solicitud de pago ===
+2026-05-19 17:28:00 [INFO] [http-nio-7021-exec-10] c.e.u.p.d.service.PaymentService - Buscando empresa para API key...
+2026-05-19 17:28:00 [INFO] [http-nio-7021-exec-10] c.e.u.p.d.service.PaymentService - Empresa identificada: Compañia Event Tracker S.W
+2026-05-19 17:28:00 [INFO] [http-nio-7021-exec-10] c.e.u.p.d.service.PaymentService - Pago registrado con ID: 4 — estado inicial: PENDING
+2026-05-19 17:28:00 [INFO] [http-nio-7021-exec-10] c.e.u.p.d.service.PaymentService - Envío de pago a autorización externa
+2026-05-19 17:28:00 [INFO] [http-nio-7021-exec-10] c.e.u.p.d.service.PaymentService - Pago ID: 4 — resultado final: APPROVED
+2026-05-19 17:28:00 [INFO] [http-nio-7021-exec-10] c.e.u.p.d.service.PaymentService - === Fin de solicitud de pago ===
+2026-05-19 17:28:25 [INFO] [http-nio-7021-exec-1] c.e.u.p.d.service.PaymentService - === Inicio de solicitud de pago ===
+2026-05-19 17:28:25 [INFO] [http-nio-7021-exec-1] c.e.u.p.d.service.PaymentService - Buscando empresa para API key...
+2026-05-19 17:28:25 [INFO] [http-nio-7021-exec-1] c.e.u.p.d.service.PaymentService - Empresa identificada: Compañia Event Tracker S.W
+2026-05-19 17:28:25 [INFO] [http-nio-7021-exec-1] c.e.u.p.d.service.PaymentService - Pago registrado con ID: 5 — estado inicial: PENDING
+2026-05-19 17:28:25 [INFO] [http-nio-7021-exec-1] c.e.u.p.d.service.PaymentService - Envío de pago a autorización externa
+2026-05-19 17:28:25 [INFO] [http-nio-7021-exec-1] c.e.u.p.d.service.PaymentService - Pago ID: 5 — resultado final: REJECTED
+2026-05-19 17:28:25 [INFO] [http-nio-7021-exec-1] c.e.u.p.d.service.PaymentService - === Fin de solicitud de pago ===
+2026-05-19 17:34:34 [INFO] [restartedMain] c.e.u.p.PropaymentApplication - Starting PropaymentApplication using Java 24.0.2 with PID 11656 (E:\William\event\propayment\build\classes\java\main started by ruyk1 in E:\William\event\propayment)
+2026-05-19 17:34:34 [INFO] [restartedMain] c.e.u.p.PropaymentApplication - The following 1 profile is active: "dev"
+2026-05-19 17:34:34 [INFO] [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-05-19 17:34:34 [INFO] [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-05-19 17:34:34 [INFO] [restartedMain] o.s.b.d.c.l.DockerComposeLifecycleManager - Using Docker Compose file E:\William\event\propayment\compose.yaml
+2026-05-19 17:34:36 [INFO] [restartedMain] o.s.b.d.c.l.DockerComposeLifecycleManager - There are already Docker Compose services running, skipping startup
+2026-05-19 17:34:37 [INFO] [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-19 17:34:37 [INFO] [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 61 ms. Found 2 JPA repository interfaces.
+2026-05-19 17:34:38 [INFO] [restartedMain] o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 7021 (http)
+2026-05-19 17:34:38 [INFO] [restartedMain] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7021"]
+2026-05-19 17:34:38 [INFO] [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-19 17:34:38 [INFO] [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-05-19 17:34:38 [INFO] [restartedMain] o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 1708 ms
+2026-05-19 17:34:38 [INFO] [restartedMain] org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-19 17:34:38 [INFO] [restartedMain] org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-05-19 17:34:39 [INFO] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-19 17:34:39 [INFO] [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-19 17:34:39 [INFO] [restartedMain] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3bdae8f4
+2026-05-19 17:34:39 [INFO] [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-19 17:34:39 [INFO] [restartedMain] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://127.0.0.1:5251/payment_service_db?ApplicationName=propayment]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 16.13
+	Default catalog/schema: payment_service_db/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-19 17:34:40 [INFO] [restartedMain] org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-19 17:34:41 [INFO] [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-19 17:34:41 [INFO] [restartedMain] o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-19 17:34:41 [WARN] [restartedMain] o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-19 17:34:42 [INFO] [restartedMain] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7021"]
+2026-05-19 17:34:42 [INFO] [restartedMain] o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 7021 (http) with context path '/payment/api'
+2026-05-19 17:34:42 [INFO] [restartedMain] c.e.u.p.PropaymentApplication - Started PropaymentApplication in 8.768 seconds (process running for 9.338)
+2026-05-19 17:34:48 [INFO] [http-nio-7021-exec-3] o.a.c.c.C.[.[.[/payment/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-19 17:34:48 [INFO] [http-nio-7021-exec-3] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-19 17:34:48 [INFO] [http-nio-7021-exec-3] o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-05-19 17:34:49 [INFO] [http-nio-7021-exec-3] c.e.u.p.d.service.PaymentService - Reporte 2 — empresa 'Compañia Event Tracker S.W': 3 pagos aprobados sin transferir
+2026-05-19 18:10:31 [WARN] [http-nio-7021-exec-5] o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `co.edu.uptc.propayment.persistence.enums.CardType` from String "NU": not one of the values accepted for Enum class: [VISA, MASTERCARD]]
+2026-05-19 18:10:52 [WARN] [http-nio-7021-exec-4] o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `co.edu.uptc.propayment.persistence.enums.CardType` from String "NU": not one of the values accepted for Enum class: [VISA, MASTERCARD]]
+2026-05-19 18:11:18 [INFO] [restartedMain] c.e.u.p.PropaymentApplication - Starting PropaymentApplication using Java 24.0.2 with PID 4352 (E:\William\event\propayment\build\classes\java\main started by ruyk1 in E:\William\event\propayment)
+2026-05-19 18:11:18 [INFO] [restartedMain] c.e.u.p.PropaymentApplication - The following 1 profile is active: "dev"
+2026-05-19 18:11:18 [INFO] [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-05-19 18:11:18 [INFO] [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-05-19 18:11:18 [INFO] [restartedMain] o.s.b.d.c.l.DockerComposeLifecycleManager - Using Docker Compose file E:\William\event\propayment\compose.yaml
+2026-05-19 18:11:19 [INFO] [restartedMain] o.s.b.d.c.l.DockerComposeLifecycleManager - There are already Docker Compose services running, skipping startup
+2026-05-19 18:11:20 [INFO] [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-19 18:11:20 [INFO] [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 62 ms. Found 2 JPA repository interfaces.
+2026-05-19 18:11:21 [INFO] [restartedMain] o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 7021 (http)
+2026-05-19 18:11:21 [INFO] [restartedMain] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7021"]
+2026-05-19 18:11:21 [INFO] [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-19 18:11:21 [INFO] [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-05-19 18:11:21 [INFO] [restartedMain] o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 1753 ms
+2026-05-19 18:11:21 [INFO] [restartedMain] org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-19 18:11:22 [INFO] [restartedMain] org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-05-19 18:11:22 [INFO] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-19 18:11:22 [INFO] [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-19 18:11:23 [INFO] [restartedMain] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@730bd8ad
+2026-05-19 18:11:23 [INFO] [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-19 18:11:23 [INFO] [restartedMain] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://127.0.0.1:5251/payment_service_db?ApplicationName=propayment]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 16.13
+	Default catalog/schema: payment_service_db/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-19 18:11:24 [INFO] [restartedMain] org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-19 18:11:24 [INFO] [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-19 18:11:24 [INFO] [restartedMain] o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-19 18:11:25 [WARN] [restartedMain] o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-19 18:11:25 [INFO] [restartedMain] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7021"]
+2026-05-19 18:11:25 [INFO] [restartedMain] o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 7021 (http) with context path '/payment/api'
+2026-05-19 18:11:25 [INFO] [restartedMain] c.e.u.p.PropaymentApplication - Started PropaymentApplication in 7.721 seconds (process running for 8.314)
+2026-05-19 18:11:43 [INFO] [http-nio-7021-exec-1] o.a.c.c.C.[.[.[/payment/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-19 18:11:43 [INFO] [http-nio-7021-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-19 18:11:43 [INFO] [http-nio-7021-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-05-19 18:11:43 [INFO] [http-nio-7021-exec-1] c.e.u.p.d.service.PaymentService - === Inicio de solicitud de pago ===
+2026-05-19 18:11:43 [INFO] [http-nio-7021-exec-1] c.e.u.p.d.service.PaymentService - Buscando empresa para API key...
+2026-05-19 18:11:44 [INFO] [http-nio-7021-exec-1] c.e.u.p.d.service.PaymentService - Empresa identificada: Compañia Event Tracker S.W
+2026-05-19 18:11:44 [WARN] [http-nio-7021-exec-1] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23514
+2026-05-19 18:11:44 [WARN] [http-nio-7021-exec-1] org.hibernate.orm.jdbc.error - ERROR: new row for relation "payments" violates check constraint "payments_card_type_check"
+  Detail: Failing row contains (130, 0366, 1, 6, f, 2026-05-19 18:11:43.778237, null, No Name, NU, PENDING, josefo@gmail.com).
+2026-05-19 18:11:44 [ERROR] [http-nio-7021-exec-1] o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [/payment/api] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: could not execute statement [ERROR: new row for relation "payments" violates check constraint "payments_card_type_check"
+  Detail: Failing row contains (130, 0366, 1, 6, f, 2026-05-19 18:11:43.778237, null, No Name, NU, PENDING, josefo@gmail.com).] [insert into payments (amount,card_holder_name,card_last4,card_type,company_id,payment_date,status,transfer_date,transferred_to_company,user_email) values (?,?,?,?,?,?,?,?,?,?)]; SQL [insert into payments (amount,card_holder_name,card_last4,card_type,company_id,payment_date,status,transfer_date,transferred_to_company,user_email) values (?,?,?,?,?,?,?,?,?,?)]; constraint [payments_card_type_check]] with root cause
+org.postgresql.util.PSQLException: ERROR: new row for relation "payments" violates check constraint "payments_card_type_check"
+  Detail: Failing row contains (130, 0366, 1, 6, f, 2026-05-19 18:11:43.778237, null, No Name, NU, PENDING, josefo@gmail.com).
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:181)
+	at org.hibernate.id.insert.GetGeneratedKeysDelegate.performMutation(GetGeneratedKeysDelegate.java:103)
+	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorSingleNonBatched.performNonBatchedOperations(MutationExecutorSingleNonBatched.java:45)
+	at org.hibernate.engine.jdbc.mutation.internal.AbstractMutationExecutor.execute(AbstractMutationExecutor.java:66)
+	at org.hibernate.engine.jdbc.mutation.internal.AbstractMutationExecutor.execute(AbstractMutationExecutor.java:55)
+	at org.hibernate.persister.entity.mutation.InsertCoordinatorStandard.doStaticInserts(InsertCoordinatorStandard.java:180)
+	at org.hibernate.persister.entity.mutation.InsertCoordinatorStandard.coordinateInsert(InsertCoordinatorStandard.java:120)
+	at org.hibernate.persister.entity.mutation.InsertCoordinatorStandard.insert(InsertCoordinatorStandard.java:84)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:85)
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:667)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:291)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:270)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:322)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:371)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:285)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:215)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:133)
+	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:144)
+	at org.hibernate.event.internal.DefaultPersistEventListener.persist(DefaultPersistEventListener.java:90)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:74)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:50)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:138)
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:692)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:675)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:362)
+	at jdk.proxy4/jdk.proxy4.$Proxy128.persist(Unknown Source)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityHandlerInvocationHandler.invokeMethod(SharedEntityManagerCreator.java:240)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:386)
+	at jdk.proxy4/jdk.proxy4.$Proxy128.persist(Unknown Source)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:664)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:278)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:169)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:545)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:290)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:690)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:171)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:146)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:69)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:135)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:166)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:222)
+	at jdk.proxy4/jdk.proxy4.$Proxy135.save(Unknown Source)
+	at co.edu.uptc.propayment.domain.service.PaymentService.processPayment(PaymentService.java:68)
+	at co.edu.uptc.propayment.web.controller.PaymentController.processPayment(PaymentController.java:26)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:252)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:184)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:934)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:853)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:86)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1000)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:649)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1801)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2026-05-19 18:13:06 [INFO] [restartedMain] c.e.u.p.PropaymentApplication - Starting PropaymentApplication using Java 24.0.2 with PID 9920 (E:\William\event\propayment\build\classes\java\main started by ruyk1 in E:\William\event\propayment)
+2026-05-19 18:13:06 [INFO] [restartedMain] c.e.u.p.PropaymentApplication - The following 1 profile is active: "dev"
+2026-05-19 18:13:06 [INFO] [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-05-19 18:13:06 [INFO] [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-05-19 18:13:06 [INFO] [restartedMain] o.s.b.d.c.l.DockerComposeLifecycleManager - Using Docker Compose file E:\William\event\propayment\compose.yaml
+2026-05-19 18:13:07 [INFO] [restartedMain] o.s.b.d.c.l.DockerComposeLifecycleManager - There are already Docker Compose services running, skipping startup
+2026-05-19 18:13:08 [INFO] [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-19 18:13:08 [INFO] [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 62 ms. Found 2 JPA repository interfaces.
+2026-05-19 18:13:09 [INFO] [restartedMain] o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 7021 (http)
+2026-05-19 18:13:09 [INFO] [restartedMain] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7021"]
+2026-05-19 18:13:09 [INFO] [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-19 18:13:09 [INFO] [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-05-19 18:13:09 [INFO] [restartedMain] o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 1584 ms
+2026-05-19 18:13:09 [INFO] [restartedMain] org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-19 18:13:09 [INFO] [restartedMain] org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-05-19 18:13:10 [INFO] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-19 18:13:10 [INFO] [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-19 18:13:10 [INFO] [restartedMain] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@42470ddc
+2026-05-19 18:13:10 [INFO] [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-19 18:13:10 [INFO] [restartedMain] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://127.0.0.1:5251/payment_service_db?ApplicationName=propayment]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 16.13
+	Default catalog/schema: payment_service_db/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-19 18:13:11 [INFO] [restartedMain] org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-19 18:13:11 [INFO] [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-19 18:13:11 [INFO] [restartedMain] o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-19 18:13:12 [WARN] [restartedMain] o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-19 18:13:12 [INFO] [restartedMain] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7021"]
+2026-05-19 18:13:12 [INFO] [restartedMain] o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 7021 (http) with context path '/payment/api'
+2026-05-19 18:13:12 [INFO] [restartedMain] c.e.u.p.PropaymentApplication - Started PropaymentApplication in 7.022 seconds (process running for 7.618)
+2026-05-19 18:13:45 [INFO] [http-nio-7021-exec-1] o.a.c.c.C.[.[.[/payment/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-19 18:13:45 [INFO] [http-nio-7021-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-19 18:13:45 [INFO] [http-nio-7021-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-05-19 18:14:06 [INFO] [http-nio-7021-exec-4] c.e.u.p.d.service.PaymentService - === Inicio de solicitud de pago ===
+2026-05-19 18:14:06 [INFO] [http-nio-7021-exec-4] c.e.u.p.d.service.PaymentService - Buscando empresa para API key...
+2026-05-19 18:14:06 [INFO] [http-nio-7021-exec-4] c.e.u.p.d.service.PaymentService - Empresa identificada: Compañia Event Tracker S.W
+2026-05-19 18:14:06 [INFO] [http-nio-7021-exec-4] c.e.u.p.d.service.PaymentService - Pago registrado con ID: 1 — estado inicial: PENDING
+2026-05-19 18:14:06 [INFO] [http-nio-7021-exec-4] c.e.u.p.d.service.PaymentService - Envío de pago a autorización externa
+2026-05-19 18:14:07 [INFO] [http-nio-7021-exec-4] c.e.u.p.d.service.PaymentService - Pago ID: 1 — resultado final: APPROVED
+2026-05-19 18:14:07 [INFO] [http-nio-7021-exec-4] c.e.u.p.d.service.PaymentService - === Fin de solicitud de pago ===
+2026-05-19 18:14:42 [INFO] [http-nio-7021-exec-3] c.e.u.p.d.service.PaymentService - === Inicio de solicitud de pago ===
+2026-05-19 18:14:42 [INFO] [http-nio-7021-exec-3] c.e.u.p.d.service.PaymentService - Buscando empresa para API key...
+2026-05-19 18:14:42 [INFO] [http-nio-7021-exec-3] c.e.u.p.d.service.PaymentService - Empresa identificada: Compañia Event Tracker S.W
+2026-05-19 18:14:42 [INFO] [http-nio-7021-exec-3] c.e.u.p.d.service.PaymentService - Pago registrado con ID: 2 — estado inicial: PENDING
+2026-05-19 18:14:42 [INFO] [http-nio-7021-exec-3] c.e.u.p.d.service.PaymentService - Envío de pago a autorización externa
+2026-05-19 18:14:43 [INFO] [http-nio-7021-exec-3] c.e.u.p.d.service.PaymentService - Pago ID: 2 — resultado final: REJECTED
+2026-05-19 18:14:43 [INFO] [http-nio-7021-exec-3] c.e.u.p.d.service.PaymentService - === Fin de solicitud de pago ===
+2026-05-19 18:14:46 [INFO] [http-nio-7021-exec-5] c.e.u.p.d.service.PaymentService - === Inicio de solicitud de pago ===
+2026-05-19 18:14:46 [INFO] [http-nio-7021-exec-5] c.e.u.p.d.service.PaymentService - Buscando empresa para API key...
+2026-05-19 18:14:46 [INFO] [http-nio-7021-exec-5] c.e.u.p.d.service.PaymentService - Empresa identificada: Compañia Event Tracker S.W
+2026-05-19 18:14:46 [INFO] [http-nio-7021-exec-5] c.e.u.p.d.service.PaymentService - Pago registrado con ID: 3 — estado inicial: PENDING
+2026-05-19 18:14:46 [INFO] [http-nio-7021-exec-5] c.e.u.p.d.service.PaymentService - Envío de pago a autorización externa
+2026-05-19 18:14:46 [INFO] [http-nio-7021-exec-5] c.e.u.p.d.service.PaymentService - Pago ID: 3 — resultado final: APPROVED
+2026-05-19 18:14:46 [INFO] [http-nio-7021-exec-5] c.e.u.p.d.service.PaymentService - === Fin de solicitud de pago ===
+2026-05-19 18:58:51 [INFO] [http-nio-7021-exec-8] c.e.u.p.d.service.PaymentService - === Inicio de solicitud de pago ===
+2026-05-19 18:58:51 [INFO] [http-nio-7021-exec-8] c.e.u.p.d.service.PaymentService - Buscando empresa para API key...
+2026-05-19 18:58:51 [INFO] [http-nio-7021-exec-8] c.e.u.p.d.service.PaymentService - Empresa identificada: Compañia Event Tracker S.W
+2026-05-19 18:58:51 [INFO] [http-nio-7021-exec-8] c.e.u.p.d.service.PaymentService - Pago registrado con ID: 4 — estado inicial: PENDING
+2026-05-19 18:58:51 [INFO] [http-nio-7021-exec-8] c.e.u.p.d.service.PaymentService - Envío de pago a autorización externa
+2026-05-19 18:58:51 [INFO] [http-nio-7021-exec-8] c.e.u.p.d.service.PaymentService - Pago ID: 4 — resultado final: REJECTED
+2026-05-19 18:58:51 [INFO] [http-nio-7021-exec-8] c.e.u.p.d.service.PaymentService - === Fin de solicitud de pago ===
+2026-05-19 18:58:57 [INFO] [http-nio-7021-exec-9] c.e.u.p.d.service.PaymentService - === Inicio de solicitud de pago ===
+2026-05-19 18:58:57 [INFO] [http-nio-7021-exec-9] c.e.u.p.d.service.PaymentService - Buscando empresa para API key...
+2026-05-19 18:58:57 [INFO] [http-nio-7021-exec-9] c.e.u.p.d.service.PaymentService - Empresa identificada: Compañia Event Tracker S.W
+2026-05-19 18:58:57 [INFO] [http-nio-7021-exec-9] c.e.u.p.d.service.PaymentService - Pago registrado con ID: 5 — estado inicial: PENDING
+2026-05-19 18:58:57 [INFO] [http-nio-7021-exec-9] c.e.u.p.d.service.PaymentService - Envío de pago a autorización externa
+2026-05-19 18:58:57 [INFO] [http-nio-7021-exec-9] c.e.u.p.d.service.PaymentService - Pago ID: 5 — resultado final: APPROVED
+2026-05-19 18:58:57 [INFO] [http-nio-7021-exec-9] c.e.u.p.d.service.PaymentService - === Fin de solicitud de pago ===
+2026-05-19 18:59:18 [INFO] [http-nio-7021-exec-10] c.e.u.p.d.service.PaymentService - === Inicio de solicitud de pago ===
+2026-05-19 18:59:18 [INFO] [http-nio-7021-exec-10] c.e.u.p.d.service.PaymentService - Buscando empresa para API key...
+2026-05-19 18:59:18 [INFO] [http-nio-7021-exec-10] c.e.u.p.d.service.PaymentService - Empresa identificada: Compañia Event Tracker S.W
+2026-05-19 18:59:18 [INFO] [http-nio-7021-exec-10] c.e.u.p.d.service.PaymentService - Pago registrado con ID: 6 — estado inicial: PENDING
+2026-05-19 18:59:18 [INFO] [http-nio-7021-exec-10] c.e.u.p.d.service.PaymentService - Envío de pago a autorización externa
+2026-05-19 18:59:18 [INFO] [http-nio-7021-exec-10] c.e.u.p.d.service.PaymentService - Pago ID: 6 — resultado final: REJECTED
+2026-05-19 18:59:18 [INFO] [http-nio-7021-exec-10] c.e.u.p.d.service.PaymentService - === Fin de solicitud de pago ===
+2026-05-19 20:02:39 [WARN] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@69ac4884 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-05-19 20:57:23 [WARN] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@3d9c6b7f (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-05-19 20:57:24 [WARN] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=54m42s965ms536µs300ns).

@@ -7,6 +7,10 @@ public class Card {
     private CardType cardType;
     private String cardNumber;
     private String cardHolderName;
+    private String csv;
+
+    public String getCsv() { return csv; }
+    public void setCsv(String csv) { this.csv = csv; }
 
 
     public CardType getCardType() {

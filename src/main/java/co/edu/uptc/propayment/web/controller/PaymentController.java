@@ -23,8 +23,7 @@ public class PaymentController {
     @PostMapping("/process")
         public PaymentResponse processPayment(@RequestHeader("API-Key") String apiKey,
                                               @RequestBody Transaction transaction)  {
-            Payment payment = paymentService.processPayment(apiKey, transaction);
-            return new PaymentResponse(payment.getStatus(), "xd");
+        return paymentService.processPayment(apiKey, transaction);
         }
 
     @GetMapping("/approved-transferred")
