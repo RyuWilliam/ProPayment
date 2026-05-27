@@ -1,18 +1,54 @@
+version: '3.9'
+
 services:
   postgres:
     image: postgres:16-alpine
     container_name: payment_service_db
-
     environment:
       POSTGRES_DB: payment_service_db
       POSTGRES_USER: PaymentAdmin
-      POSTGRES_PASSWORD: "5#0{uz3Ws/£"
-
+      POSTGRES_PASSWORD: 50uz3Ws
     ports:
       - "5251:5432"
-
     volumes:
-      - pgdata_fresh:/var/lib/postgresql/data
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U PaymentAdmin -d payment_service_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - payment-network
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: propayment-service
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      SERVER_PORT: 7021
+      SERVER_SERVLET_CONTEXT_PATH: /payment/api
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/payment_service_db
+      SPRING_DATASOURCE_USERNAME: PaymentAdmin
+      SPRING_DATASOURCE_PASSWORD: 50uz3Ws
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      BANK_VISA_URL: "https://banco-cards-functions-fjemdjb6gkfscvdx.westeurope-01.azurewebsites.net/api/visavalidate"
+      BANK_MASTERCARD_URL: "https://banco-cards-functions-fjemdjb6gkfscvdx.westeurope-01.azurewebsites.net/api/mastercardvalidate"
+      BANK_NUBANK_URL: ${BANK_NUBANK_URL:-https://nu-service.onrender.com/validate}
+    ports:
+      - "7021:7021"
+    networks:
+      - payment-network
+    restart: unless-stopped
 
 volumes:
-  pgdata_fresh:
+  pgdata:
+    driver: local
+
+networks:
+  payment-network:
+    driver: bridge
